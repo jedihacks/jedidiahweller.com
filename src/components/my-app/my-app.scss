@@ -1,17 +1,27 @@
 my-app {
   header {
-    background: #5851ff;
-    color: white;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    // background: transparent;
+    // height: 56px;
+    // display: flex;
+    // align-items: center;
+    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   }
 
   h1 {
     font-size: 1.4rem;
     font-weight: 500;
-    color: #fff;
+    color: var(--app-primary-color);
     padding: 0 12px;
+  }
+
+  .btn {
+    float:right;
+  }
+
+  .main-background {
+    background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
   }
 }
