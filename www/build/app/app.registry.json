@@ -9,6 +9,9 @@
     "app-home": {
       "$": "app-home"
     },
+    "app-nav": {
+      "$": "app-nav"
+    },
     "app-profile": {
       "$": "app-profile"
     },

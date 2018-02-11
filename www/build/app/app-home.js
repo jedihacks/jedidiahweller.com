@@ -18,15 +18,6 @@ class AppHome {
 class MyApp {
     render() {
         return (h("div", null,
-            h("header", null,
-                h("div", { class: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" },
-                    h("h5", { class: "my-0 mr-md-auto font-weight-normal" }, " @jedihacks "),
-                    h("nav", { class: "my-2 my-md-0 mr-md-3" },
-                        h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                        h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                        h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                        h("a", { class: "p-2 text-dark", href: "3" }, "Features ")),
-                    h("a", { class: "btn btn-outline-primary", href: "#" }, " Sign Up"))),
             h("div", { class: "position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light main-background" },
                 h("div", { class: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
                     h("div", { class: "card-deck mb-3 text-center" },

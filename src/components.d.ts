@@ -50,6 +50,36 @@ declare global {
 
 
 import {
+  AppNav as AppNav
+} from './components/app-nav/app-nav';
+
+declare global {
+  interface HTMLAppNavElement extends AppNav, HTMLStencilElement {
+  }
+  var HTMLAppNavElement: {
+    prototype: HTMLAppNavElement;
+    new (): HTMLAppNavElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-nav": HTMLAppNavElement;
+  }
+  interface ElementTagNameMap {
+    "app-nav": HTMLAppNavElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-nav": JSXElements.AppNavAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppNavAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   AppProfile as AppProfile
 } from './components/app-profile/app-profile';
 
