@@ -10,7 +10,7 @@
       "$": "app-home"
     },
     "app-nav": {
-      "$": "app-nav"
+      "$": "app-home"
     },
     "app-profile": {
       "$": "app-profile"
