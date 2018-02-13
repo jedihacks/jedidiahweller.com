@@ -19,13 +19,14 @@ class AppNav {
     render() {
         return (h("header", null,
             h("div", { class: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow" },
-                h("h5", { class: "my-0 mr-md-auto font-weight-normal" }, " @jedihacks "),
+                h("a", { class: "my-0 mr-md-auto font-weight-normal", href: "https://www.twitter.com/jedihacks", target: "_blank" },
+                    " ",
+                    h("h5", null, " @jedihacks ")),
                 h("nav", { class: "my-2 my-md-0 mr-md-3" },
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Features "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Features ")),
-                h("a", { class: "btn btn-outline-primary", href: "#" }, " Sign Up"))));
+                    h("a", { class: "p-2 text-dark", href: "3" }, "Recognition "),
+                    h("a", { class: "p-2 text-dark", href: "3" }, "About "),
+                    h("a", { class: "p-2 text-dark", href: "3" }, "Events "),
+                    h("a", { class: "p-2 text-dark", href: "3" }, "Contact ")))));
     }
     static get is() { return "app-nav"; }
     static get style() { return ""; }
@@ -33,30 +34,32 @@ class AppNav {
 
 class MyApp {
     render() {
-        return (h("div", { class: "row" },
-            h("div", { class: "position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light main-background" },
-                h("div", { class: "container" },
-                    h("div", { class: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
-                        h("div", { class: "card-deck mb-3 text-center" },
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))))))),
+        return (h("div", { class: "container-fluid main-background" },
+            h("div", { class: "row" },
+                h("div", { class: "col span_12 left" },
+                    h("div", { class: "" }, "HEY"))),
+            h("div", null,
+                h("div", { class: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
+                    h("div", { class: "card-deck mb-3 text-center" },
+                        h("div", { class: "card mb-4 box-shadow" },
+                            h("div", { class: "card-header" }, "2014 "),
+                            h("div", { class: "card-body" },
+                                h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
+                        h("div", { class: "card mb-4 box-shadow" },
+                            h("div", { class: "card-header" }, "2014 "),
+                            h("div", { class: "card-body" },
+                                h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
+                        h("div", { class: "card mb-4 box-shadow" },
+                            h("div", { class: "card-header" }, "2014 "),
+                            h("div", { class: "card-body" },
+                                h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others")))))),
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-home', exact: true }),
                     h("stencil-route", { url: '/profile/:name', component: 'app-profile' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .main-background {\n  background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  overflow-y: scroll;\n  max-width: 100%;\n  background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 1000px;\n}"; }
 }
 
 export { AppHome, AppNav, MyApp };

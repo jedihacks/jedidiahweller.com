@@ -1,10 +1,28 @@
 my-app {
-  header {
-    // background: transparent;
-    // height: 56px;
-    // display: flex;
-    // align-items: center;
-    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 575px) { 
+    //TODO
+  }
+
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) and (max-width: 767px) { 
+  //TODO
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) and (max-width: 991px) { 
+    //TODO
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) and (max-width: 1199px) {
+    //TODO
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    //TODO
   }
 
   h1 {
@@ -19,9 +37,13 @@ my-app {
   }
 
   .main-background {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-width: 100%;
     background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #ffffff;
+    height: 1000px; //TODO - Not responsive.  Need to respond to screen realty?
   }
 }

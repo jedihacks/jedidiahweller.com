@@ -9,9 +9,20 @@ export class MyApp {
 
   render() {
     return (
-      <div class="row">
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light main-background">
-          <div class="container">
+      <div class="container-fluid main-background">
+        {/* <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light main-background"> */}
+
+        <div class="row">
+          <div class="col span_12 left"> 
+            <div class="">
+            HEY
+            </div>
+          </div>
+        </div>
+
+
+
+          <div>
             <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
               <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 box-shadow"> 
@@ -34,7 +45,7 @@ export class MyApp {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       
         <main>
