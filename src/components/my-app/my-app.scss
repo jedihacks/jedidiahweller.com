@@ -32,18 +32,50 @@ my-app {
     padding: 0 12px;
   }
 
+  .red {
+    background-color: red;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
   .btn {
     float:right;
   }
 
+  .intro-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .intro-header-text {
+    font-family: Quicksand;
+    font-size: 70px;
+    line-height: 70px;
+    font-weight: 700;
+  }
+
+  .second-body {
+    background-color: white;
+    height: 100vh;
+  }
+
+  .second-body-img {
+    height: 50%;
+    width: 50%;
+    background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);
+  }
+
   .main-background {
     overflow-x: hidden;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     max-width: 100%;
     background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #ffffff;
-    height: 1000px; //TODO - Not responsive.  Need to respond to screen realty?
+    height: 110vh; //TODO - Not responsive.  Need to respond to screen realty?
   }
 }

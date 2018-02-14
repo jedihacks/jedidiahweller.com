@@ -34,12 +34,16 @@ class AppNav {
 
 class MyApp {
     render() {
-        return (h("div", { class: "container-fluid main-background" },
-            h("div", { class: "row" },
-                h("div", { class: "col span_12 left" },
-                    h("div", { class: "" }, "HEY"))),
-            h("div", null,
-                h("div", { class: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
+        return (h("div", { class: "container-fluid" },
+            h("div", { class: "container-fluid main-background" },
+                h("div", { class: "row intro-body" },
+                    h("div", { class: "col" },
+                        h("div", { class: "intro-header-text" }, " Meet Jedidiah Weller"),
+                        h("p", null, "He went from battling joblessness to founding Philly\u2019s Best Tech Workplace for Diversity. Liz continues to be a driving force for diversity and inclusion in tech as a globetrotting public speaker, mentor, meetup organizer, and civic hacker. "),
+                        h("button", { class: "btn-primary" }, "Learn More")),
+                    h("div", { class: "col" },
+                        h("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/PJTZzGChGqM", frameborder: "0" }))),
+                h("div", { class: "row px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
                     h("div", { class: "card-deck mb-3 text-center" },
                         h("div", { class: "card mb-4 box-shadow" },
                             h("div", { class: "card-header" }, "2014 "),
@@ -53,13 +57,23 @@ class MyApp {
                             h("div", { class: "card-header" }, "2014 "),
                             h("div", { class: "card-body" },
                                 h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others")))))),
+            " ",
+            h("div", { class: "container" },
+                h("div", { class: "row second-body" },
+                    h("div", { class: "col second-body-img" }, " Left col"),
+                    h("div", { class: "col" },
+                        h("h1", null, " Thinker. Maker. Doer. "),
+                        h("h2", null, " Liz is Co-CEO and Head of Design at Webjunto, a user-experience-focused design and development company based in Philadelphia. Liz has a passion for both research and design. Over the past 15 years, she has worked on a wide range of projects including research on motivation theory, cognitive learning theory, and user experience. After more than 10 years of taking on side gigs as a web designer and front-end developer, she earned a master\u2019s degree in information design and technology from SUNY Polytechnic Institute and went on to cofound Webjunto. Prior to starting Webjunto, Liz received a master\u2019s degree in urban planning from the School of Architecture and Planning at SUNY Buffalo, and practiced as an urban planner specializing in urban revitalization. Liz continues to do work in the community as a civic hacking enthusiast, event organizer, and public speaker."),
+                        h("h2", null, " Past Discussion topics "),
+                        h("p", null, " User Experience Design Design Thinking Community Building Prototyping Women in Tech Design Theory Psychology of Influence Diversity & Inclusion Bootstrapping a Startup Communication")))),
+            " ",
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-home', exact: true }),
                     h("stencil-route", { url: '/profile/:name', component: 'app-profile' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  overflow-y: scroll;\n  max-width: 100%;\n  background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 1000px;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .red {\n  background-color: red;\n}\n\nmy-app .blue {\n  background-color: blue;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 100vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n}\n\nmy-app .second-body {\n  background-color: white;\n  height: 100vh;\n}\n\nmy-app .second-body-img {\n  height: 50%;\n  width: 50%;\n  background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  max-width: 100%;\n  background-image: url(http://jedidiahweller.com/wp-content/uploads/2017/12/18238046_1328404087250403_7814498151750250838_o.jpg);\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
 }
 
 export { AppHome, AppNav, MyApp };
