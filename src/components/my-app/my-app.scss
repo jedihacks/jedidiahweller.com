@@ -76,7 +76,15 @@ my-app {
   h1.bio {
     font-size: 40px;
     line-height: 50px;
-    text-align: center;
+    text-align: left;
+    padding: 0;
+  }
+
+  h2.bio {
+    font-size: 16px;
+    line-height: 26px;
+    color: #bfbfbf;
+    text-align: left;
   }
 
   .second-body-img {

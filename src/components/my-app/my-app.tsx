@@ -54,7 +54,8 @@ export class MyApp {
         <div class="row second-body">
           <div class="col mx-3 second-body-img"></div>
           <div class="col bio px-5">
-            <h1 class="bio"> Thinker. Maker. Doer. </h1>
+            <h2 class="bio">About Jedidiah Weller </h2>
+            <h1 class="bio">Thinker. Maker. Doer. </h1>
             <p class="bio">
               Jedi (Jedidiah) Weller is CO-CEO & Head of Technology at Webjunto, a Design & Development agency providing customized services across the globe. 
               In addition, Jedi is an entrepreneur, landlord, dog lover, and organizer of the Philadelphia Junto, one of the fastest growing meetups in Philly. 
@@ -65,7 +66,7 @@ export class MyApp {
               culinary exercises. He has been a speaker and mentor at technology events across the world, such as SXSW (Slashathon), 
               The Web Summit (#hack4good Dublin), Duke University (#hackduke), and University of Penn (Penn Apps). 
             </p>
-            <h1 class="bio"> Past Discussion topics </h1>
+            <h2 class="bio"> Past Discussion topics </h2>
             <ul> 
               <li> User Experience Design </li>
               <li> Design Thinking </li>
@@ -83,11 +84,8 @@ export class MyApp {
 
       </div> { /*End Container*/}
 
-
-            
-          {/* </div> */}
+      {/* </div> */}
         
-      
         <main>
           <stencil-router>
             <stencil-route url='/' component='app-home' exact={true}>
