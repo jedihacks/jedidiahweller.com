@@ -51,9 +51,18 @@ export class MyApp {
           <div class="col second-body-img"> Left col</div>
           <div class="col">
             <h1> Thinker. Maker. Doer. </h1>
-            <h2> Liz is Co-CEO and Head of Design at Webjunto, a user-experience-focused design and development company based in Philadelphia. Liz has a passion for both research and design. Over the past 15 years, she has worked on a wide range of projects including research on motivation theory, cognitive learning theory, and user experience.
-After more than 10 years of taking on side gigs as a web designer and front-end developer, she earned a master’s degree in information design and technology from SUNY Polytechnic Institute and went on to cofound Webjunto. Prior to starting Webjunto, Liz received a master’s degree in urban planning from the School of Architecture and Planning at SUNY Buffalo, and practiced as an urban planner specializing in urban revitalization. Liz continues to do work in the community as a civic hacking enthusiast, event organizer, and public speaker.
-            </h2>
+            <h4> 
+            <p>
+              Jedi (Jedidiah) Weller is CO-CEO & Head of Technology at Webjunto, a Design & Development agency providing customized services across the globe. 
+              In addition, Jedi is an entrepreneur, landlord, dog lover, and organizer of the Philadelphia Junto, one of the fastest growing meetups in Philly. 
+            </p>
+            <p>
+              Previously, Jedi has worked as Director of Operations @ Geekli.st in Silicon Valley, Unisys Corporation, Analytical Graphics Inc., and the 
+              Technological Institute of Crete, Greece. He serves on the board of Kitchen Cred, a Philadelphia non-profit 501(3)(c) that fosters youth through 
+              culinary exercises. He has been a speaker and mentor at technology events across the world, such as SXSW (Slashathon), 
+              The Web Summit (#hack4good Dublin), Duke University (#hackduke), and University of Penn (Penn Apps). 
+            </p>
+            </h4>
             <h2> Past Discussion topics </h2>
             <p> User Experience Design
             Design Thinking
