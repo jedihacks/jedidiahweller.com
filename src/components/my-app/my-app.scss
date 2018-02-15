@@ -45,7 +45,7 @@ my-app {
   }
 
   .intro-body {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
   }
@@ -55,6 +55,13 @@ my-app {
     font-size: 70px;
     line-height: 70px;
     font-weight: 700;
+    color: white;
+  }
+
+  .intro-text {
+    font-family: Quicksand;
+    font-size: 24px;
+    color: white;
   }
 
   .second-body {
@@ -62,8 +69,18 @@ my-app {
     height: 100vh;
   }
 
+  p.bio {
+    text-align: justify;
+  }
+
+  h1.bio {
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+  }
+
   .second-body-img {
-    max-height: 100%;
+    max-height: 750px;
     background-image: url("assets/img/jedi-center.png");
     background-position: center center;
     object-fit: contain;
