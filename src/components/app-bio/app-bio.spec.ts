@@ -3,14 +3,14 @@ import { AppBio } from './app-bio';
 
 describe('app-bio', () => {
   it('should build', () => {
-    expect(new AppProfile()).toBeTruthy();
+    expect(new AppBio()).toBeTruthy();
   });
 
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
       element = await render({
-        components: [AppProfile],
+        components: [AppBio],
         html: '<app-bio></app-bio>'
       });
     });
