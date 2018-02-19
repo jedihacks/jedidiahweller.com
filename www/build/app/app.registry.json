@@ -6,17 +6,17 @@
   "core": "app.core.js",
   "corePolyfilled": "es5-build-disabled.js",
   "components": {
+    "app-bio": {
+      "$": "app-bio"
+    },
     "app-home": {
-      "$": "app-home"
+      "$": "app-bio"
     },
     "app-nav": {
-      "$": "app-home"
-    },
-    "app-profile": {
-      "$": "app-profile"
+      "$": "app-bio"
     },
     "my-app": {
-      "$": "app-home"
+      "$": "app-bio"
     }
   }
 }

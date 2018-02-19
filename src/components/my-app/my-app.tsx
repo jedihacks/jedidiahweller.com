@@ -108,7 +108,7 @@ export class MyApp {
             <stencil-route url='/' component='app-home' exact={true}>
             </stencil-route>
 
-            <stencil-route url='/profile/:name' component='app-profile'>
+            <stencil-route url='/profile/:name' component='app-bio'>
             </stencil-route>
           </stencil-router>
         </main>

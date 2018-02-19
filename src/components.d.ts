@@ -20,6 +20,36 @@ declare global {
 
 
 import {
+  AppBio as AppBio
+} from './components/app-bio/app-bio';
+
+declare global {
+  interface HTMLAppBioElement extends AppBio, HTMLStencilElement {
+  }
+  var HTMLAppBioElement: {
+    prototype: HTMLAppBioElement;
+    new (): HTMLAppBioElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-bio": HTMLAppBioElement;
+  }
+  interface ElementTagNameMap {
+    "app-bio": HTMLAppBioElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-bio": JSXElements.AppBioAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppBioAttributes extends HTMLAttributes {
+      match?: MatchResults;
+    }
+  }
+}
+
+
+import {
   AppHome as AppHome
 } from './components/app-home/app-home';
 
@@ -74,36 +104,6 @@ declare global {
   namespace JSXElements {
     export interface AppNavAttributes extends HTMLAttributes {
       
-    }
-  }
-}
-
-
-import {
-  AppProfile as AppProfile
-} from './components/app-profile/app-profile';
-
-declare global {
-  interface HTMLAppProfileElement extends AppProfile, HTMLStencilElement {
-  }
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  interface ElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-profile": JSXElements.AppProfileAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppProfileAttributes extends HTMLAttributes {
-      match?: MatchResults;
     }
   }
 }

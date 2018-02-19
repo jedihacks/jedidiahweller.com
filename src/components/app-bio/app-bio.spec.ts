@@ -1,7 +1,7 @@
 import { flush, render } from '@stencil/core/testing';
-import { AppProfile } from './app-profile';
+import { AppBio } from './app-bio';
 
-describe('app-profile', () => {
+describe('app-bio', () => {
   it('should build', () => {
     expect(new AppProfile()).toBeTruthy();
   });
@@ -11,7 +11,7 @@ describe('app-profile', () => {
     beforeEach(async () => {
       element = await render({
         components: [AppProfile],
-        html: '<app-profile></app-profile>'
+        html: '<app-bio></app-bio>'
       });
     });
 

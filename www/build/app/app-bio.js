@@ -1,6 +1,21 @@
 /*! Built with http://stenciljs.com */
 const { h, Context } = window.App;
 
+class AppBio {
+    render() {
+        if (this.match && this.match.params.name) {
+            return (h("div", null,
+                h("p", null,
+                    "Hello! My name is ",
+                    this.match.params.name,
+                    ". My name was passed in through a route param!")));
+        }
+    }
+    static get is() { return "app-bio"; }
+    static get properties() { return { "match": { "type": "Any", "attr": "match" } }; }
+    static get style() { return "app-bio div {\n  padding: 10px;\n}"; }
+}
+
 class AppHome {
     render() {
         return (h("div", null,
@@ -83,10 +98,10 @@ class MyApp {
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-home', exact: true }),
-                    h("stencil-route", { url: '/profile/:name', component: 'app-profile' })))));
+                    h("stencil-route", { url: '/profile/:name', component: 'app-bio' })))));
     }
     static get is() { return "my-app"; }
     static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: #f3b57a;\n  padding-bottom: 40%;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .second-body {\n  background-color: white;\n  height: 100vh;\n}\n\nmy-app p.bio {\n  text-align: justify;\n}\n\nmy-app h1.bio {\n  font-size: 40px;\n  line-height: 50px;\n  text-align: left;\n  padding: 0;\n}\n\nmy-app h2.bio {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\nmy-app .second-body-img {\n  max-height: 750px;\n  background-image: url(\"assets/img/jedi-center.png\");\n  background-position: center center;\n  object-fit: contain;\n  display: inline-block;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/ben-franklin.jpg\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
 }
 
-export { AppHome, AppNav, MyApp };
+export { AppBio, AppHome, AppNav, MyApp };
