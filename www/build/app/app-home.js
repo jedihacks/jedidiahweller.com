@@ -18,7 +18,7 @@ class AppHome {
 class AppNav {
     render() {
         return (h("header", null,
-            h("div", { class: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow" },
+            h("div", { class: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 border-bottom box-shadow" },
                 h("a", { class: "my-0 mr-md-auto font-weight-normal", href: "https://www.twitter.com/jedihacks", target: "_blank" },
                     " ",
                     h("h5", null, " @jedihacks ")),
@@ -29,7 +29,7 @@ class AppNav {
                     h("a", { class: "p-2 text-dark", href: "3" }, "Contact ")))));
     }
     static get is() { return "app-nav"; }
-    static get style() { return ""; }
+    static get style() { return "header {\n  background-color: white;\n}"; }
 }
 
 class MyApp {
@@ -38,28 +38,8 @@ class MyApp {
             h("div", { class: "main-background" },
                 h("div", { class: "container" },
                     h("div", { class: "row intro-body" },
-                        h("div", { class: "col" },
-                            h("div", { class: "intro-header-text" }, " Meet Jedidiah Weller"),
-                            h("p", { class: "intro-text" }, "He went from battling joblessness to founding Philly\u2019s Best Tech Workplace for Diversity. Liz continues to be a driving force for diversity and inclusion in tech as a globetrotting public speaker, mentor, meetup organizer, and civic hacker. "),
-                            h("button", { class: "btn-primary" }, "Learn More")),
-                        h("div", { class: "col" },
-                            h("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/PJTZzGChGqM", frameborder: "0" })))),
-                h("div", { class: "container" },
-                    h("div", { class: "row px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
-                        h("div", { class: "card-deck mb-3 text-center" },
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                            h("div", { class: "card mb-4 box-shadow" },
-                                h("div", { class: "card-header" }, "2014 "),
-                                h("div", { class: "card-body" },
-                                    h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))))),
-                    " ")),
+                        h("div", { class: "col-8" },
+                            h("div", { class: "intro-header-text" }, " Welcome Home."))))),
             " ",
             h("div", { class: "container pt-5" },
                 h("div", { class: "row second-body" },
@@ -82,13 +62,31 @@ class MyApp {
                             h("li", null, " Bootstrapping a Startup "),
                             h("li", null, " Communication "))))),
             " ",
+            h("div", { class: "container pt-5 center" },
+                h("div", { class: "intro-header-text" }, " Events & Trips"),
+                h("div", { class: "row" },
+                    h("div", { class: "col-3" }, " January 4th "),
+                    h("div", { class: "col-3" }, " Filming Somewhere "),
+                    h("div", { class: "col-3" }, " Philadelphia PA "),
+                    h("div", { class: "col-3" }, " Watch Recording ")),
+                h("div", { class: "row" },
+                    h("div", { class: "col-3" }, " January 4th "),
+                    h("div", { class: "col-3" }, " Filming Somewhere "),
+                    h("div", { class: "col-3" }, " Philadelphia PA "),
+                    h("div", { class: "col-3" }, " Watch Recording ")),
+                h("div", { class: "row" },
+                    h("div", { class: "col-3" }, " January 4th "),
+                    h("div", { class: "col-3" }, " Filming Somewhere "),
+                    h("div", { class: "col-3" }, " Philadelphia PA "),
+                    h("div", { class: "col-3" }, " Watch Recording "))),
+            " ",
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-home', exact: true }),
                     h("stencil-route", { url: '/profile/:name', component: 'app-profile' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .red {\n  background-color: red;\n}\n\nmy-app .blue {\n  background-color: blue;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .second-body {\n  background-color: white;\n  height: 100vh;\n}\n\nmy-app p.bio {\n  text-align: justify;\n}\n\nmy-app h1.bio {\n  font-size: 40px;\n  line-height: 50px;\n  text-align: left;\n  padding: 0;\n}\n\nmy-app h2.bio {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\nmy-app .second-body-img {\n  max-height: 750px;\n  background-image: url(\"assets/img/jedi-center.png\");\n  background-position: center center;\n  object-fit: contain;\n  display: inline-block;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/jedi-left.png\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: #f3b57a;\n  padding-bottom: 40%;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .second-body {\n  background-color: white;\n  height: 100vh;\n}\n\nmy-app p.bio {\n  text-align: justify;\n}\n\nmy-app h1.bio {\n  font-size: 40px;\n  line-height: 50px;\n  text-align: left;\n  padding: 0;\n}\n\nmy-app h2.bio {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\nmy-app .second-body-img {\n  max-height: 750px;\n  background-image: url(\"assets/img/jedi-center.png\");\n  background-position: center center;\n  object-fit: contain;\n  display: inline-block;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/ben-franklin.jpg\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
 }
 
 export { AppHome, AppNav, MyApp };
