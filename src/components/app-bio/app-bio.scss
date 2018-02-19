@@ -1,5 +1,33 @@
 app-bio {
-  div {
-    padding: 10px;
+  .second-body {
+    background-color: white;
+    height: 100vh;
   }
+
+  p.bio {
+    text-align: justify;
+  }
+
+  h1.bio {
+    font-size: 40px;
+    line-height: 50px;
+    text-align: left;
+    padding: 0;
+  }
+
+  h2.bio {
+    font-size: 16px;
+    line-height: 26px;
+    color: #bfbfbf;
+    text-align: left;
+  }
+
+  .second-body-img {
+    max-height: 750px;
+    background-image: url("assets/img/jedi-center.png");
+    background-position: center center;
+    object-fit: contain;
+    display: inline-block;
+  }
+
 }

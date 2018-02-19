@@ -6,9 +6,6 @@
 
 import '@stencil/router';
 
-import {
-  MatchResults,
-} from '@stencil/router';
 
 declare global {
   interface HTMLStencilElement extends HTMLElement {
@@ -43,7 +40,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppBioAttributes extends HTMLAttributes {
-      match?: MatchResults;
+      
     }
   }
 }
