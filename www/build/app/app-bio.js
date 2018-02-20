@@ -54,19 +54,18 @@ class AppEvents {
 
 class AppNav {
     render() {
-        return (h("header", null,
-            h("div", { class: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 border-bottom box-shadow" },
-                h("a", { class: "my-0 mr-md-auto font-weight-normal", href: "https://www.twitter.com/jedihacks", target: "_blank" },
-                    " ",
-                    h("h5", null, " @jedihacks ")),
-                h("nav", { class: "my-2 my-md-0 mr-md-3" },
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Recognition "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "About "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Events "),
-                    h("a", { class: "p-2 text-dark", href: "3" }, "Contact ")))));
+        return (h("nav", { class: "navbar border-bottom box-shadow flex-column flex-md-row p-3 px-md-4" },
+            h("a", { class: "my-0 mr-md-auto font-weight-normal", href: "https://www.twitter.com/jedihacks", target: "_blank" },
+                " ",
+                h("h5", null, " @jedihacks ")),
+            h("div", { class: "my-2 my-md-0 mr-md-3" },
+                h("a", { class: "p-2 text-dark", href: "3" }, "Recognition "),
+                h("a", { class: "p-2 text-dark", href: "3" }, "About "),
+                h("a", { class: "p-2 text-dark", href: "3" }, "Events "),
+                h("a", { class: "p-2 text-dark", href: "3" }, "Contact "))));
     }
     static get is() { return "app-nav"; }
-    static get style() { return "header {\n  background-color: white;\n}"; }
+    static get style() { return "app-nav header {\n  background-color: white;\n}"; }
 }
 
 class MyApp {
@@ -78,7 +77,7 @@ class MyApp {
                     h("stencil-route", { url: '/profile/:name', component: 'app-bio' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 12px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/jedi-w.jpg\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 0px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/jedi-w.jpg\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
 }
 
 export { AppBio, AppEvents, AppNav, MyApp };

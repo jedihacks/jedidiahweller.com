@@ -11,7 +11,7 @@ export class MyApp {
     return (
       <div class="container-fluid main-background">
         {/* <div class="videoContainer">
-          <iframe class="videoContainer__video" width="1920" height="1080" src="https://www.youtube.com/embed/PJTZzGChGqM" frameborder="0"></iframe>
+          <iframe class="videoContainer__video" width="1920" height="1080" src="https://www.youtube.com/embed/PJTZzGChGqM?rel=0&autoplay=1" frameborder="0"></iframe>
         </div>
      */}
 
