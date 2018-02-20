@@ -9,7 +9,7 @@
     "app-bio": {
       "$": "app-bio"
     },
-    "app-home": {
+    "app-events": {
       "$": "app-bio"
     },
     "app-nav": {

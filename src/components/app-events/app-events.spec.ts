@@ -1,16 +1,16 @@
 import { render } from '@stencil/core/testing';
-import { AppHome } from './app-home';
+import { AppEvents } from './app-events';
 
 describe('app', () => {
   it('should build', () => {
-    expect(new AppHome()).toBeTruthy();
+    expect(new AppEvents()).toBeTruthy();
   });
 
   describe('rendering', () => {
     beforeEach(async () => {
       await render({
-        components: [AppHome],
-        html: '<app-home></app-home>'
+        components: [AppEvents],
+        html: '<app-events></app-events>'
       });
     });
   });

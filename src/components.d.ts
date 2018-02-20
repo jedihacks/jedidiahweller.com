@@ -47,29 +47,29 @@ declare global {
 
 
 import {
-  AppHome as AppHome
-} from './components/app-home/app-home';
+  AppEvents as AppEvents
+} from './components/app-events/app-events';
 
 declare global {
-  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
+  interface HTMLAppEventsElement extends AppEvents, HTMLStencilElement {
   }
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
+  var HTMLAppEventsElement: {
+    prototype: HTMLAppEventsElement;
+    new (): HTMLAppEventsElement;
   };
   interface HTMLElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    "app-events": HTMLAppEventsElement;
   }
   interface ElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    "app-events": HTMLAppEventsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-home": JSXElements.AppHomeAttributes;
+      "app-events": JSXElements.AppEventsAttributes;
     }
   }
   namespace JSXElements {
-    export interface AppHomeAttributes extends HTMLAttributes {
+    export interface AppEventsAttributes extends HTMLAttributes {
       
     }
   }

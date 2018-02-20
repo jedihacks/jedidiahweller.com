@@ -61,4 +61,4 @@ function supportsCssVariables(win) {
 
 init(win, doc, appNamespace, urlNamespace, publicPath, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components);
 
-})(window, document, "App","app","/build/app/","app.core.js","es5-build-disabled.js","hydrated",[["app-bio","app-bio",1],["app-home","app-bio",1],["app-nav","app-bio",1],["my-app","app-bio",1]]);
+})(window, document, "App","app","/build/app/","app.core.js","es5-build-disabled.js","hydrated",[["app-bio","app-bio",1],["app-events","app-bio",1],["app-nav","app-bio",1],["my-app","app-bio",1]]);

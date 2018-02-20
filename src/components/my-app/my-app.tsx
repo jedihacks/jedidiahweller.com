@@ -9,19 +9,11 @@ export class MyApp {
 
   render() {
     return (
-      <div class="container-fluid">
-
-        <div class="main-background"> 
-          <div class="container">
-            <div class="row intro-body">
-              <div class="col-8"> 
-                <div class="intro-header-text"> Welcome Home.</div>
-                {/* <p class="intro-text">He went from battling joblessness to founding Philly’s Best Tech Workplace for Diversity. Liz continues to be a driving force for diversity and inclusion in tech as a globetrotting public speaker, mentor, meetup organizer, and civic hacker. </p> */}
-                {/* <iframe width="560" height="349" src="https://www.youtube.com/embed/PJTZzGChGqM" frameborder="0"></iframe> */}
-                {/* <button class="btn-primary">Learn More</button> */}
-              </div>
-            </div>
-          </div>
+      <div class="container-fluid main-background">
+        {/* <div class="videoContainer">
+          <iframe class="videoContainer__video" width="1920" height="1080" src="https://www.youtube.com/embed/PJTZzGChGqM" frameborder="0"></iframe>
+        </div>
+     */}
 
           {/* <div class="container">
             <div class="row px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -47,32 +39,10 @@ export class MyApp {
                 </div>
             </div> 
           </div> */}
-        </div> { /*container end */}
-        <div class="container pt-5 center">
-          <div class="intro-header-text"> Events & Trips</div>
-            <div class="row">
-              <div class="col-3"> January 4th </div>
-              <div class="col-3"> Filming Somewhere </div>
-              <div class="col-3"> Philadelphia PA </div>
-              <div class="col-3"> Watch Recording </div>
-            </div>
-            <div class="row">
-              <div class="col-3"> January 4th </div>
-              <div class="col-3"> Filming Somewhere </div>
-              <div class="col-3"> Philadelphia PA </div>
-              <div class="col-3"> Watch Recording </div>
-            </div>
-            <div class="row">
-              <div class="col-3"> January 4th </div>
-              <div class="col-3"> Filming Somewhere </div>
-              <div class="col-3"> Philadelphia PA </div>
-              <div class="col-3"> Watch Recording </div>
-            </div>
-        </div> { /* Events Container */}
-        
+  
         <main>
           <stencil-router>
-            <stencil-route url='/' component='app-home' exact={true}>
+            <stencil-route url='/' component='app-events' exact={true}>
             </stencil-route>
 
             <stencil-route url='/profile/:name' component='app-bio'>
