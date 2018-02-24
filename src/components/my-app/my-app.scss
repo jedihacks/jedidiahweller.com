@@ -48,10 +48,15 @@ my-app {
 
   .main-background {
     overflow-x: hidden;
-    background-image: url("/assets/img/jedi-w.jpg");
+    background-image: url("/assets/img/confetti.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #ffffff;
     height: 110vh;
+  }
+
+  .jedi-picture {
+    margin-left: 50%; 
+    height: 70vh;
   }
 }

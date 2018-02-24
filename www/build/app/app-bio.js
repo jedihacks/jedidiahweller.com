@@ -54,7 +54,8 @@ class AppEvents {
 
 class AppNav {
     render() {
-        return (h("nav", { class: "navbar border-bottom box-shadow flex-column flex-md-row p-3 px-md-4" },
+        return (h("nav", { class: "navbar box-shadow flex-column flex-md-row p-3 px-md-4 sticky-top" },
+            " ",
             h("a", { class: "my-0 mr-md-auto font-weight-normal", href: "https://www.twitter.com/jedihacks", target: "_blank" },
                 " ",
                 h("h5", null, " @jedihacks ")),
@@ -65,19 +66,36 @@ class AppNav {
                 h("a", { class: "p-2 text-dark", href: "3" }, "Contact "))));
     }
     static get is() { return "app-nav"; }
-    static get style() { return "app-nav header {\n  background-color: white;\n}"; }
+    static get style() { return ""; }
 }
 
 class MyApp {
     render() {
         return (h("div", { class: "container-fluid main-background" },
+            h("div", { class: "row" },
+                h("div", { class: "col-12 " },
+                    h("img", { class: "jedi-picture", src: "/assets/img/jedi_4_X2.png" }, " "))),
+            h("div", { class: "row px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
+                h("div", { class: "card-deck mb-3 text-center" },
+                    h("div", { class: "card mb-4 box-shadow" },
+                        h("div", { class: "card-header" }, "2014 "),
+                        h("div", { class: "card-body" },
+                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
+                    h("div", { class: "card mb-4 box-shadow" },
+                        h("div", { class: "card-header" }, "2014 "),
+                        h("div", { class: "card-body" },
+                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
+                    h("div", { class: "card mb-4 box-shadow" },
+                        h("div", { class: "card-header" }, "2014 "),
+                        h("div", { class: "card-body" },
+                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))))),
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-events', exact: true }),
                     h("stencil-route", { url: '/profile/:name', component: 'app-bio' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 0px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/jedi-w.jpg\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 0px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/confetti.png\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}\n\nmy-app .jedi-picture {\n  margin-left: 50%;\n  height: 70vh;\n}"; }
 }
 
 export { AppBio, AppEvents, AppNav, MyApp };

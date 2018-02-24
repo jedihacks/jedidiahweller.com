@@ -7,7 +7,7 @@ import { Component } from '@stencil/core';
 export class AppNav {
     render () {
         return (
-            <nav class="navbar border-bottom box-shadow flex-column flex-md-row p-3 px-md-4">
+            <nav class="navbar box-shadow flex-column flex-md-row p-3 px-md-4 sticky-top"> { /* sticky-top isn't supported by every browser */}
                 <a class="my-0 mr-md-auto font-weight-normal" href="https://www.twitter.com/jedihacks" target="_blank"> <h5> @jedihacks </h5></a>
                 <div class="my-2 my-md-0 mr-md-3">
                     <a class="p-2 text-dark" href="3">Recognition </a>
