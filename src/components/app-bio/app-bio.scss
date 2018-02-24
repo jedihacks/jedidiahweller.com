@@ -1,16 +1,18 @@
 app-bio {
-  .second-body {
+  .body {
     background-color: white;
-    height: 100vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
 
   p.bio {
-    text-align: justify;
+    text-align: left;
   }
 
   h1.bio {
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
     text-align: left;
     padding: 0;
   }
@@ -22,11 +24,10 @@ app-bio {
     text-align: left;
   }
 
-  .second-body-img {
-    max-height: 750px;
-    background-image: url("assets/img/jedi-center.png");
+  .body-img {
+    background-image: url("assets/img/jedi-panel.png");
     background-position: center center;
-    object-fit: contain;
+    background-repeat: no-repeat;
     display: inline-block;
   }
 

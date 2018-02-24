@@ -4,28 +4,40 @@ const { h, Context } = window.App;
 class AppBio {
     render() {
         return (h("div", { class: "container pt-5" },
-            h("div", { class: "row second-body" },
-                h("div", { class: "col mx-3 second-body-img" }),
-                h("div", { class: "col bio px-5" },
+            h("div", { class: "row body" },
+                h("div", { class: "col mx-3 body-img" }),
+                h("div", { class: "col bio p-5" },
                     h("h2", { class: "bio" }, "About Jedidiah Weller "),
-                    h("h1", { class: "bio" }, "Thinker. Maker. Doer. "),
-                    h("p", { class: "bio" }, "Jedi (Jedidiah) Weller is CO-CEO & Head of Technology at Webjunto, a Design & Development agency providing customized services across the globe. In addition, Jedi is an entrepreneur, landlord, dog lover, and organizer of the Philadelphia Junto, one of the fastest growing meetups in Philly."),
-                    h("p", { class: "bio" }, "Previously, Jedi has worked as Director of Operations @ Geekli.st in Silicon Valley, Unisys Corporation, Analytical Graphics Inc., and the Technological Institute of Crete, Greece. He serves on the board of Kitchen Cred, a Philadelphia non-profit 501(3)(c) that fosters youth through culinary exercises. He has been a speaker and mentor at technology events across the world, such as SXSW (Slashathon), The Web Summit (#hack4good Dublin), Duke University (#hackduke), and University of Penn (Penn Apps)."),
-                    h("h2", { class: "bio" }, " Past Discussion topics "),
-                    h("ul", null,
-                        h("li", null, " User Experience Design "),
-                        h("li", null, " Design Thinking "),
-                        h("li", null, " Community Building "),
-                        h("li", null, " Prototyping "),
-                        h("li", null, " Women in Tech "),
-                        h("li", null, " Design Theory "),
-                        h("li", null, " Psychology of Influence "),
-                        h("li", null, " Diversity & Inclusion "),
-                        h("li", null, " Bootstrapping a Startup "),
-                        h("li", null, " Communication "))))));
+                    h("h1", { class: "bio" }, "Speaker, Developer"),
+                    h("h1", { class: "bio" }, "Writer, & Co-Founder "),
+                    h("div", { class: "row" }, " "),
+                    h("div", { class: "col p-2" },
+                        h("img", { src: "assets/img/ZigZag.png" })),
+                    h("p", { class: "bio" },
+                        "Jedi (Jedidiah) Weller is CO-CEO & Head of Technology at ",
+                        h("a", { href: "www.webjunto.com" }, " Webjunto "),
+                        ", a Design & Development agency providing customized services across the globe. In addition, Jedi is an entrepreneur, landlord, dog lover, and organizer of the ",
+                        h("a", { href: "https://www.meetup.com/phillyjunto/" }, " Philadelphia Junto "),
+                        ", one of the fastest growing meetups in Philly."),
+                    h("p", { class: "bio" },
+                        "Previously, Jedi has worked as Director of Operations @ Geekli.st in Silicon Valley, ",
+                        h("a", { href: "http://www.unisys.com/" }, " Unisys Corporation "),
+                        ", ",
+                        h("a", { href: "https://www.agi.com/home" }, " Analytical Graphics Inc."),
+                        ", and the Technological Institute of Crete, Greece. He served on the board of ",
+                        h("a", { href: "http://kitchencred.org/" }, " Kitchen Cred "),
+                        ", a Philadelphia non-profit 501(3)(c) that fosters youth through culinary exercises. He has been a speaker and mentor at technology events across the world, such as ",
+                        h("a", { href: "http://loudwire.com/myles-kennedy-wins-best-vocalist-3rd-annual-loudwire-music-awards/" }, " SXSW (Slashathon) "),
+                        ",",
+                        h("a", { href: "https://www.eventbrite.com/e/geeklist-hack4good-05-global-dublin-ireland-tickets-10089697557#" }, " The Web Summit (#hack4good Dublin) "),
+                        ", ",
+                        h("a", { href: "https://hackduke2015.devpost.com/" }, " Duke University (#hackduke) "),
+                        ", and ",
+                        h("a", { href: "http://pennapps.com/" }, " University of Penn (Penn Apps) "),
+                        ".")))));
     }
     static get is() { return "app-bio"; }
-    static get style() { return "app-bio .second-body {\n  background-color: white;\n  height: 100vh;\n}\n\napp-bio p.bio {\n  text-align: justify;\n}\n\napp-bio h1.bio {\n  font-size: 40px;\n  line-height: 50px;\n  text-align: left;\n  padding: 0;\n}\n\napp-bio h2.bio {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\napp-bio .second-body-img {\n  max-height: 750px;\n  background-image: url(\"assets/img/jedi-center.png\");\n  background-position: center center;\n  object-fit: contain;\n  display: inline-block;\n}"; }
+    static get style() { return "app-bio .body {\n  background-color: white;\n  margin-top: 5vh;\n  margin-bottom: 5vh;\n}\n\napp-bio p.bio {\n  text-align: left;\n}\n\napp-bio h1.bio {\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 40px;\n  text-align: left;\n  padding: 0;\n}\n\napp-bio h2.bio {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\napp-bio .body-img {\n  background-image: url(\"assets/img/jedi-panel.png\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  display: inline-block;\n}"; }
 }
 
 class AppEvents {
@@ -71,31 +83,39 @@ class AppNav {
 
 class MyApp {
     render() {
-        return (h("div", { class: "container-fluid main-background" },
-            h("div", { class: "row" },
-                h("div", { class: "col-12 " },
-                    h("img", { class: "jedi-picture", src: "/assets/img/jedi_4_X2.png" }, " "))),
-            h("div", { class: "row px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" },
+        return (h("div", null,
+            h("div", { class: "container-fluid main-background" },
+                h("div", { class: "row" },
+                    h("div", { class: "col-2" }),
+                    h("div", { class: "col-4 intro-header-text" }, " Meet Jedi."),
+                    h("div", { class: "col-6" },
+                        h("img", { class: "jedi-picture", src: "/assets/img/jedi_4_X2.png" }, " ")))),
+            h("div", { class: "row px-3 pb-md-4 mx-auto text-center jedi-summary-cards" },
                 h("div", { class: "card-deck mb-3 text-center" },
-                    h("div", { class: "card mb-4 box-shadow" },
-                        h("div", { class: "card-header" }, "2014 "),
+                    h("div", { class: "card m-4" },
+                        h("div", { class: "card-header" }, " 2014 "),
                         h("div", { class: "card-body" },
-                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                    h("div", { class: "card mb-4 box-shadow" },
-                        h("div", { class: "card-header" }, "2014 "),
+                            h("h5", { class: "card-title" }, " Co-founded Webjunto.com "),
+                            h("h5", null, " Philadelphia, Pennsylvania "))),
+                    h("div", { class: "card m-4" },
+                        h("div", { class: "card-header" }, " 2015 "),
                         h("div", { class: "card-body" },
-                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))),
-                    h("div", { class: "card mb-4 box-shadow" },
-                        h("div", { class: "card-header" }, "2014 "),
+                            h("h5", { class: "card-title" }, "Official Partner with Ionic Framework Internationally "))),
+                    h("div", { class: "card m-4" },
+                        h("div", { class: "card-header" }, " 2016 "),
                         h("div", { class: "card-body" },
-                            h("h5", { class: "card-title" }, "Founded Webjunto.com, hosted even in Dublin Ireland, and others"))))),
+                            h("h5", { class: "card-title" }, "Expanded Operations with first Global clients"))),
+                    h("div", { class: "card m-4" },
+                        h("div", { class: "card-header" }, " 2017 "),
+                        h("div", { class: "card-body" },
+                            h("h5", { class: "card-title" }, "Surpassed 1M In Annual Revenue"))))),
             h("main", null,
                 h("stencil-router", null,
                     h("stencil-route", { url: '/', component: 'app-events', exact: true }),
                     h("stencil-route", { url: '/profile/:name', component: 'app-bio' })))));
     }
     static get is() { return "my-app"; }
-    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 0px;\n}\n\nmy-app .btn {\n  float: right;\n}\n\nmy-app .intro-body {\n  height: 90vh;\n  display: flex;\n  align-items: center;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: white;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .videoWrapper {\n  position: relative;\n  padding-bottom: 56.25%;\n  /* 16:9 */\n  padding-top: 25px;\n  height: 0;\n}\n\nmy-app .videoWrapper iframe {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/confetti.png\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 110vh;\n}\n\nmy-app .jedi-picture {\n  margin-left: 50%;\n  height: 70vh;\n}"; }
+    static get style() { return "my-app h1 {\n  font-size: 1.4rem;\n  font-weight: 500;\n  color: var(--app-primary-color);\n  padding: 0 0px;\n}\n\nmy-app .intro-header-text {\n  font-family: Quicksand;\n  font-size: 70px;\n  line-height: 70px;\n  font-weight: 700;\n  color: grey;\n  align-items: center;\n  text-align: center;\n  display: flex;\n}\n\nmy-app .intro-text {\n  font-family: Quicksand;\n  font-size: 24px;\n  color: white;\n}\n\nmy-app .main-background {\n  overflow-x: hidden;\n  background-image: url(\"/assets/img/confetti.png\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #ffffff;\n  height: 70vh;\n}\n\nmy-app .jedi-picture {\n  height: 70vh;\n}\n\nmy-app .jedi-summary-cards {\n  background-color: #3353df;\n}\n\nmy-app .card, my-app .card-header {\n  background-color: #3353df;\n  border-color: #3353df;\n  color: white;\n}\n\nmy-app .card-header {\n  font-family: Quicksand;\n  font-size: 28px;\n  font-weight: 700;\n}"; }
 }
 
 export { AppBio, AppEvents, AppNav, MyApp };
