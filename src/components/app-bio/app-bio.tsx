@@ -26,9 +26,9 @@ export class AppBio {
               </p>
               <p class="bio">
                 Previously, Jedi has worked as Director of Operations @ Geekli.st in Silicon Valley, <a href="http://www.unisys.com/"> Unisys Corporation </a>, <a href="https://www.agi.com/home"> Analytical Graphics Inc.</a>, and the 
-                Technological Institute of Crete, Greece. He served on the board of <a href="http://kitchencred.org/"> Kitchen Cred </a>, a Philadelphia non-profit 501(3)(c) that fosters youth through 
-                culinary exercises. He has been a speaker and mentor at technology events across the world, such as <a href="http://loudwire.com/myles-kennedy-wins-best-vocalist-3rd-annual-loudwire-music-awards/"> SXSW (Slashathon) </a>, 
-                <a href="https://www.eventbrite.com/e/geeklist-hack4good-05-global-dublin-ireland-tickets-10089697557#"> The Web Summit (#hack4good Dublin) </a>, <a href="https://hackduke2015.devpost.com/"> Duke University (#hackduke) </a>, and <a href="http://pennapps.com/" > University of Penn (Penn Apps) </a>. 
+                Technological Institute of Crete, Greece. He served on the board of <a href="http://kitchencred.org/"> Kitchen Cred</a>, a Philadelphia non-profit 501(3)(c) that fosters youth through 
+                culinary exercises. He has been a speaker and mentor at technology events across the world, such as <a href="http://loudwire.com/myles-kennedy-wins-best-vocalist-3rd-annual-loudwire-music-awards/">SXSW (Slashathon)</a>, 
+                <a href="https://www.eventbrite.com/e/geeklist-hack4good-05-global-dublin-ireland-tickets-10089697557#"> The Web Summit (#hack4good Dublin)</a>, <a href="https://hackduke2015.devpost.com/"> Duke University (#hackduke)</a>, and <a href="http://pennapps.com/" > University of Penn (Penn Apps)</a>. 
               </p>
             </div>
           </div>
