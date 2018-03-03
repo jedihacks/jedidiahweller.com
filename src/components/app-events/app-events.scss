@@ -5,12 +5,34 @@ app-events {
         line-height: 40px;
         text-align: left;
         padding: 0;
+        margin-left: -15px;
     }
 
     h2 {
+        margin-left: -15px;
         font-size: 16px;
         line-height: 26px;
         color: #bfbfbf;
         text-align: left;
+    }
+
+    .zigzag {
+        margin-left: -30px;
+    }
+
+    .row {
+        border-style: solid none none none;
+        border-color: grey;
+        border-width: 1px 0 0 0;
+    }
+
+    .row:hover {
+        background-color: #3353df;
+        color: white;
+    }
+
+    .col-3, .col-6 {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }

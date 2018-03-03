@@ -42,27 +42,32 @@ class AppBio {
 
 class AppEvents {
     render() {
-        return (h("div", { class: "container pt-5 center" },
-            h("h2", { class: "intro-header-text" }, " 2018 Events and Trips"),
-            h("div", { class: "intro-header-text" }, " See Where Jedi's Heading Next"),
+        return (h("div", { class: "container center" },
+            h("h2", null, " 2018 Events and Trips"),
+            h("h1", null, " See Where Jedi's Heading Next"),
+            h("div", { class: "col pb-5 zigzag" },
+                h("img", { src: "assets/img/ZigZag.png" })),
             h("div", { class: "row" },
-                h("div", { class: "col-3" }, " January 4th "),
-                h("div", { class: "col-6" }, " Filming Somewhere "),
+                h("div", { class: "col-3 " }, " January 4th "),
+                h("div", { class: "col-3" }, " Filming Somewhere "),
                 h("div", { class: "col-3" }, " Philadelphia PA "),
-                h("div", { class: "col-3" }, " Watch Recording ")),
-            h("div", { class: "row" },
-                h("div", { class: "col-3" }, " January 4th "),
-                h("div", { class: "col-6" }, " Filming Somewhere "),
-                h("div", { class: "col-3" }, " Philadelphia PA "),
-                h("div", { class: "col-3" }, " Watch Recording ")),
+                h("div", { class: "col-3" },
+                    h("button", { type: "button", class: "btn btn-outline-primary" }, "Learn More"))),
             h("div", { class: "row" },
                 h("div", { class: "col-3" }, " January 4th "),
                 h("div", { class: "col-3" }, " Filming Somewhere "),
                 h("div", { class: "col-3" }, " Philadelphia PA "),
-                h("div", { class: "col-3" }, " Watch Recording "))));
+                h("div", { class: "col-3" },
+                    h("button", { type: "button", class: "btn btn-outline-primary" }, "Learn More"))),
+            h("div", { class: "row" },
+                h("div", { class: "col-3" }, " January 4th "),
+                h("div", { class: "col-3" }, " Filming Somewhere "),
+                h("div", { class: "col-3" }, " Philadelphia PA "),
+                h("div", { class: "col-3" },
+                    h("button", { type: "button", class: "btn btn-outline-primary" }, "Learn More")))));
     }
     static get is() { return "app-events"; }
-    static get style() { return "app-events h1 {\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 40px;\n  text-align: left;\n  padding: 0;\n}\n\napp-events h2 {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}"; }
+    static get style() { return "app-events h1 {\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 40px;\n  text-align: left;\n  padding: 0;\n  margin-left: -15px;\n}\n\napp-events h2 {\n  margin-left: -15px;\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}\n\napp-events .zigzag {\n  margin-left: -30px;\n}\n\napp-events .row {\n  border-style: solid none none none;\n  border-color: grey;\n  border-width: 1px 0 0 0;\n}\n\napp-events .row:hover {\n  background-color: #3353df;\n  color: white;\n}\n\napp-events .col-3, app-events .col-6 {\n  margin-top: 30px;\n  margin-bottom: 30px;\n}"; }
 }
 
 class AppNav {
