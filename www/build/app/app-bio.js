@@ -43,15 +43,16 @@ class AppBio {
 class AppEvents {
     render() {
         return (h("div", { class: "container pt-5 center" },
-            h("div", { class: "intro-header-text" }, " Events & Trips"),
+            h("h2", { class: "intro-header-text" }, " 2018 Events and Trips"),
+            h("div", { class: "intro-header-text" }, " See Where Jedi's Heading Next"),
             h("div", { class: "row" },
                 h("div", { class: "col-3" }, " January 4th "),
-                h("div", { class: "col-3" }, " Filming Somewhere "),
+                h("div", { class: "col-6" }, " Filming Somewhere "),
                 h("div", { class: "col-3" }, " Philadelphia PA "),
                 h("div", { class: "col-3" }, " Watch Recording ")),
             h("div", { class: "row" },
                 h("div", { class: "col-3" }, " January 4th "),
-                h("div", { class: "col-3" }, " Filming Somewhere "),
+                h("div", { class: "col-6" }, " Filming Somewhere "),
                 h("div", { class: "col-3" }, " Philadelphia PA "),
                 h("div", { class: "col-3" }, " Watch Recording ")),
             h("div", { class: "row" },
@@ -61,7 +62,7 @@ class AppEvents {
                 h("div", { class: "col-3" }, " Watch Recording "))));
     }
     static get is() { return "app-events"; }
-    static get style() { return ""; }
+    static get style() { return "app-events h1 {\n  font-size: 30px;\n  font-weight: 600;\n  line-height: 40px;\n  text-align: left;\n  padding: 0;\n}\n\napp-events h2 {\n  font-size: 16px;\n  line-height: 26px;\n  color: #bfbfbf;\n  text-align: left;\n}"; }
 }
 
 class AppNav {
