@@ -107,6 +107,36 @@ declare global {
 
 
 import {
+  AppProjects as AppProjects
+} from './components/app-projects/app-projects';
+
+declare global {
+  interface HTMLAppProjectsElement extends AppProjects, HTMLStencilElement {
+  }
+  var HTMLAppProjectsElement: {
+    prototype: HTMLAppProjectsElement;
+    new (): HTMLAppProjectsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-projects": HTMLAppProjectsElement;
+  }
+  interface ElementTagNameMap {
+    "app-projects": HTMLAppProjectsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-projects": JSXElements.AppProjectsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppProjectsAttributes extends HTMLAttributes {
+      name?: string;
+    }
+  }
+}
+
+
+import {
   MyApp as MyApp
 } from './components/my-app/my-app';
 

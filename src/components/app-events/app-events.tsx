@@ -16,7 +16,7 @@ export class AppEvents {
           <img src="assets/img/ZigZag.png"></img>
         </div>
         <div class="row">
-          <div class="col-3 "> January 4th </div>
+          <div class="col-3"> January 4th </div>
           <div class="col-3"> Filming Somewhere </div>
           <div class="col-3"> Philadelphia PA </div>
           <div class="col-3"> 

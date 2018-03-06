@@ -48,7 +48,7 @@ class AppEvents {
             h("div", { class: "col pb-5 zigzag" },
                 h("img", { src: "assets/img/ZigZag.png" })),
             h("div", { class: "row" },
-                h("div", { class: "col-3 " }, " January 4th "),
+                h("div", { class: "col-3" }, " January 4th "),
                 h("div", { class: "col-3" }, " Filming Somewhere "),
                 h("div", { class: "col-3" }, " Philadelphia PA "),
                 h("div", { class: "col-3" },

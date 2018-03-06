@@ -15,6 +15,9 @@
     "app-nav": {
       "$": "app-bio"
     },
+    "app-projects": {
+      "$": "app-projects"
+    },
     "my-app": {
       "$": "app-bio"
     }
