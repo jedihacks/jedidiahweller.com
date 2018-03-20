@@ -1,52 +1,55 @@
-# Stencil App Starter
 
-Stencil is a compiler for building fast web apps using Web Components.
+# Jedidiah Weller (twitter.com/jedihacks)
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Portfolio website built using stencil.js and opensourced for the community to use.  This is/was my first stencil.js application so forgive the initial commits, they were a learning process :) 
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all. In many cases, Stencil can be used as a drop in replacement for traditional frontend frameworks given the capabilities now available in the browser, though using it as such is certainly not required.
+Details are below - check out our team's work at www.openforge.io
 
-Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
+## Development
 
-## Getting Started
+### File Structure
+**UI** components should reside in the `src/components` folder.
 
-To start a new project using Stencil, clone this repo to a new directory:
+While **Page** components should reside in the `src/pages` folder. A page component is responsible for the grouping and layout of varios different components into a page. Also responsible for any logic around the communication between the different components, the rest of the application (i.e. routing), and with the external world.
 
-```bash
-git clone https://github.com/ionic-team/stencil-starter.git my-app
-cd my-app
-git remote rm origin
+### Tools
+
+#### Linting & Code Formatting:
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+This project uses:
+- [prettier](http://prettier.io/) for code formatting.
+- [tslint](https://palantir.github.io/tslint/) for linting with rules from:
+  - [tslint-react](https://github.com/palantir/tslint-react)
+  - [tslint-config-airbnb](https://github.com/progre/tslint-config-airbnb)
+  - [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier)
+
+`package.json` defines an npm script for linting. To lint the project at any time, simply run the script with
+```
+$ npm run lint
 ```
 
-and run:
+#### Versioning & Changelog
+We utilize [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) to generate a changelog from git metadata.
 
-```bash
-npm install
-npm start
-```
+The following tools are used to achieve this purpose:
+- [commitizen](https://github.com/commitizen/cz-cli)
+- [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog)
+- [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli)
 
-To view the build, start an HTTP server inside of the `/www` directory.
-
-To watch for file changes during development, run:
-
-```bash
-npm run dev
-```
-
-To build the app for production, run:
-
-```bash
-npm run build
-```
-
-To run the unit tests once, run:
+With the current configuration, after a developer stages their changes for a commit. They can use the following npm script to walk them through committing their changes.
 
 ```
-npm test
+npm run cz
 ```
 
-To run the unit tests and watch for file changes during development, run:
+Read more about the commit guidelines [here](http://conventionalcommits.org/)
 
-```
-npm run test.watch
-```
+After all changes have been committed, a release and a changelog can be triggered by using the npm [version](https://docs.npmjs.com/cli/version) command. And the current configuration takes care of generating the changelog file based on git metadata.
+
+#### Automation & Hooks
+The project uses [husky](https://github.com/typicode/husky) for git hook integations. And uses [lint-staged](https://github.com/okonet/lint-staged) to run automatically run linters on staged files. And [commitlint](https://github.com/marionebl/commitlint) to ensure commits messages follow the conventions.
+
+For every commit, it will ensure files are linted and that the code is formatted to `prettier`'s configuration. It will also confirm that the proposed commit message matches the defined guidelines. If any error occurs in the process, it will **stop and prevent** the commit until the issues are fixed.
+
+If a developer went through providing all the information during a `npm run cz` only to find that there were issues with their commit. They may fix them and instruct commitizen to try the commit again with `npm run cz -- --retry`
