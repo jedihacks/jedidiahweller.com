@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>@jedihacks - Follow Now!</title>
-  <meta name="Description" content="Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil!">
+  <meta name="Description" content="Startup and Business Advice with Jedidiah Weller.  Follow for awesome 21st century advice featuring business and technology!">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#16161d">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,5 +32,15 @@
   
   <style>
   </style>
+
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      // auto-unregister service worker during dev mode
+      navigator.serviceWorker.ready.then(function(registration) {
+        registration.unregister().then(function() { location.reload(true) });
+      });
+    }
+  </script>
+
 </body>
 </html>
