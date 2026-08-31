@@ -1,7 +1,8 @@
 # Go-live runbook
 
-Status: application published; DNS cutover completed on 2026-08-31. The `www`
-hostname is active and the apex certificate is provisioning.
+Status: live. Application publishing, DNS cutover, apex and `www` hostname
+validation, TLS provisioning, and production route verification completed on
+2026-08-31.
 
 ## Production
 
