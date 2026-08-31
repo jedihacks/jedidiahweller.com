@@ -9,7 +9,8 @@ validation, TLS provisioning, and production route verification completed on
 - Hosted deployment: `https://jedidiah-weller.openforge-2104.chatgpt.site`
 - Canonical domain: `https://jedidiahweller.com`
 - Canonical host policy: apex domain is primary; `www` redirects to apex.
-- Public routes: `/`, `/speaking/`, `/about/`, `/ventures/`, `/contact/`, and `/privacy/`.
+- Public routes: `/`, `/speaking/`, `/about/`, `/ventures/`,
+  `/ventures/summon-worlds/`, `/contact/`, and `/privacy/`.
 - Discovery routes: `/robots.txt` and `/sitemap.xml`.
 - Legacy route: `/profile/jedi/` permanently redirects to `/about/`.
 

@@ -7,7 +7,8 @@ The production personal website for Jedidiah “Jedi” Weller, built with Next.
 - `/` — personal-brand overview
 - `/speaking/` — speaking topics, video, and engagement path
 - `/about/` — biography and operating philosophy
-- `/ventures/` — OpenForge and Startup Wars
+- `/ventures/` — OpenForge, Startup Wars, and Summon Worlds
+- `/ventures/summon-worlds/` — Summon Worlds venture profile
 - `/contact/` — speaking and collaboration inquiries
 - `/privacy/` — privacy disclosure
 

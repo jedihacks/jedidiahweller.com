@@ -17,7 +17,8 @@ const pages = [
   ["/", "Jedidiah Weller — Founder, Speaker, Maker"],
   ["/speaking/", "Speaking — Jedidiah Weller"],
   ["/about/", "About Jedidiah Weller"],
-  ["/ventures/", "Ventures — OpenForge and Startup Wars"],
+  ["/ventures/", "Ventures — OpenForge, Startup Wars, and Summon Worlds"],
+  ["/ventures/summon-worlds/", "Summon Worlds — A Jedidiah Weller Venture"],
   ["/contact/", "Contact Jedidiah Weller — Book an Engagement"],
   ["/privacy/", "Privacy — Jedidiah Weller"],
 ];

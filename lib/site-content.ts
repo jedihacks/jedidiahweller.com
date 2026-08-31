@@ -9,7 +9,7 @@
  */
 
 export type CanonicalRoute =
-  "/" | "/speaking/" | "/about/" | "/ventures/" | "/contact/" | "/privacy/";
+  "/" | "/speaking/" | "/about/" | "/ventures/" | "/ventures/summon-worlds/" | "/contact/" | "/privacy/";
 
 export type ClaimStatus = "source-backed" | "owner-review" | "historical";
 
@@ -88,6 +88,7 @@ export interface VentureCard {
   name: string;
   description: string;
   href: string;
+  detailHref?: CanonicalRoute;
   relationship: Claim;
 }
 
@@ -125,6 +126,20 @@ export const ventures: VentureCard[] = [
       source: "Current live page and MIGRATION_README.md",
       reviewNote:
         "Confirm current role, capitalization, and preferred relationship wording.",
+    },
+  },
+  {
+    name: "Summon Worlds",
+    description:
+      "A collaborative, AI-assisted worldbuilding platform for writers, game masters, roleplayers, and creative storytellers.",
+    href: "https://www.summonworlds.com/",
+    detailHref: "/ventures/summon-worlds/",
+    relationship: {
+      text: "Summon Worlds is included as a venture associated with Jedidiah Weller.",
+      status: "owner-review",
+      source: "Owner request and current Summon Worlds public website",
+      reviewNote:
+        "Confirm Jedidiah’s preferred current title and relationship wording before adding it to public schema.",
     },
   },
 ];
@@ -165,7 +180,7 @@ export const personalityNumbers = [
 
 const sharedReviewFlags: Claim[] = [
   {
-    text: "Founder and CEO relationship to OpenForge and Startup Wars",
+    text: "Current relationship and title wording for OpenForge, Startup Wars, and Summon Worlds",
     status: "owner-review",
     source: "Current live page and MIGRATION_README.md",
     reviewNote: "Confirm present-tense title and preferred capitalization.",
@@ -428,7 +443,7 @@ export const aboutContent: PageContent = {
       eyebrow: "Current context",
       heading: "Building products and learning experiences",
       paragraphs: [
-        "The personal site is connected to OpenForge and Startup Wars. Visit the ventures page for concise descriptions and the links to each company; current role wording is marked for owner review.",
+        "The personal site is connected to OpenForge, Startup Wars, and Summon Worlds. Visit the ventures page for concise descriptions and links to each company; current role wording is marked for owner review.",
       ],
     },
     {
@@ -459,7 +474,7 @@ export const aboutContent: PageContent = {
     {
       question: "Where can I learn about Jedidiah’s ventures?",
       answer:
-        "Visit /ventures/ for the concise overview, then follow the approved links to OpenForge and Startup Wars.",
+        "Visit /ventures/ for the concise overview, then explore OpenForge, Startup Wars, and Summon Worlds.",
     },
     {
       question: "Is Jedi the same person as Jedidiah Weller?",
@@ -506,17 +521,17 @@ export const aboutContent: PageContent = {
 export const venturesContent: PageContent = {
   route: "/ventures/",
   seo: {
-    title: "Ventures — OpenForge and Startup Wars",
+    title: "Ventures — OpenForge, Startup Wars, and Summon Worlds",
     description:
-      "Explore the ventures associated with Jedidiah Weller: OpenForge for mobile product work and Startup Wars for entrepreneurship education.",
+      "Explore ventures associated with Jedidiah Weller: OpenForge, Startup Wars, and the collaborative worldbuilding platform Summon Worlds.",
     canonicalPath: "/ventures/",
-    ogTitle: "Ventures — OpenForge and Startup Wars",
+    ogTitle: "Ventures — OpenForge, Startup Wars, and Summon Worlds",
     ogDescription:
       "Explore the ventures associated with Jedidiah Weller and visit each company for current information.",
   },
   h1: "Building companies around products and learning",
   intro:
-    "Jedidiah’s public work connects two contexts: building useful mobile products and helping people practice entrepreneurial decisions.",
+    "Jedidiah’s public work connects mobile products, experiential entrepreneurship education, and creative worldbuilding.",
   sections: [
     {
       id: "openforge",
@@ -532,6 +547,14 @@ export const venturesContent: PageContent = {
       heading: "Startup Wars",
       paragraphs: [
         "Startup Wars presents itself as an entrepreneurship-first business simulation platform for high school, CTE, college, and university educators.",
+      ],
+    },
+    {
+      id: "summon-worlds",
+      eyebrow: "Creative worldbuilding",
+      heading: "Summon Worlds",
+      paragraphs: [
+        "Summon Worlds helps writers, game masters, roleplayers, and other storytellers create connected characters, locations, lore, art, and evolving worlds with AI-assisted tools.",
       ],
     },
     {
@@ -553,6 +576,10 @@ export const venturesContent: PageContent = {
       href: "https://www.startupwars.com/",
       external: true,
     },
+    {
+      label: "Explore Summon Worlds",
+      href: "/ventures/summon-worlds/",
+    },
   ],
   faqs: [
     {
@@ -564,6 +591,11 @@ export const venturesContent: PageContent = {
       question: "What is Startup Wars?",
       answer:
         "Startup Wars presents itself as an entrepreneurship-first business simulation platform for high school, CTE, college, and university educators.",
+    },
+    {
+      question: "What is Summon Worlds?",
+      answer:
+        "Summon Worlds is a collaborative, AI-assisted worldbuilding platform for writers, game masters, roleplayers, and creative storytellers.",
     },
     {
       question: "How are Jedidiah Weller and OpenForge connected?",
@@ -605,6 +637,96 @@ export const venturesContent: PageContent = {
     },
   ],
   reviewFlags: sharedReviewFlags,
+};
+
+export const summonWorldsContent: PageContent = {
+  route: "/ventures/summon-worlds/",
+  seo: {
+    title: "Summon Worlds — A Jedidiah Weller Venture",
+    description:
+      "Learn about Summon Worlds, a collaborative AI-assisted worldbuilding platform for writers, game masters, roleplayers, and creative storytellers.",
+    canonicalPath: "/ventures/summon-worlds/",
+    ogTitle: "Summon Worlds — Collaborative Worldbuilding",
+    ogDescription:
+      "Create connected characters, locations, lore, art, and evolving worlds with AI-assisted worldbuilding tools.",
+  },
+  h1: "Summon Worlds: collaborative worldbuilding for creative storytellers",
+  intro:
+    "Summon Worlds brings characters, locations, lore, art, relationships, and adventures into one connected creative workspace.",
+  sections: [
+    {
+      id: "what-it-is",
+      eyebrow: "The product",
+      heading: "Build a world that can keep evolving",
+      paragraphs: [
+        "Summon Worlds is designed for writers, game masters, roleplayers, and collaborative creators who want their ideas to stay connected instead of disappearing into scattered documents and image folders.",
+        "Its AI-assisted tools help creators move from a first spark to characters, places, visuals, lore, and playable or story-ready relationships without surrendering creative direction.",
+      ],
+    },
+    {
+      id: "creative-workflow",
+      eyebrow: "Creative workflow",
+      heading: "From inspiration to a living setting",
+      paragraphs: [
+        "Creators can develop original characters, locations, creatures, equipment, spells, histories, and images, then connect those pieces inside a shared world.",
+        "In-character roleplay and adventure tools create another way to explore motivations, relationships, consequences, and new story directions.",
+      ],
+    },
+    {
+      id: "audience",
+      eyebrow: "Who it serves",
+      heading: "Made for people who create worlds",
+      paragraphs: [
+        "The product supports fantasy writers developing a setting, tabletop game masters preparing a campaign, solo roleplayers exploring an adventure, and groups building a shared universe together.",
+      ],
+    },
+  ],
+  internalLinks: [
+    { label: "All ventures", href: "/ventures/" },
+    { label: "Read the biography", href: "/about/" },
+    { label: "Explore speaking topics", href: "/speaking/" },
+    { label: "Visit Summon Worlds", href: "https://www.summonworlds.com/", external: true },
+  ],
+  faqs: [
+    {
+      question: "Who is Summon Worlds for?",
+      answer:
+        "Summon Worlds is for writers, tabletop game masters, roleplayers, and collaborative creators building original settings, characters, and stories.",
+    },
+    {
+      question: "What can creators make with Summon Worlds?",
+      answer:
+        "Creators can develop connected characters, locations, creatures, equipment, spells, lore, relationships, images, and adventures inside an evolving world.",
+    },
+    {
+      question: "Where can I try Summon Worlds?",
+      answer:
+        "Visit summonworlds.com for the current product, learning resources, mobile app links, and availability information.",
+    },
+  ],
+  schema: [
+    {
+      type: "WebPage",
+      reason: "Describe the venture profile page.",
+      requirements: ["Use the canonical detail URL and visible page copy."],
+    },
+    {
+      type: "Organization",
+      reason: "Identify Summon Worlds as the venture described on the page.",
+      requirements: ["Use the official name and public website URL."],
+    },
+    {
+      type: "BreadcrumbList",
+      reason: "Represent the visible Home, Ventures, and Summon Worlds hierarchy.",
+      requirements: ["Match the visible breadcrumb links."],
+    },
+    {
+      type: "FAQPage",
+      reason: "Describe the visible venture FAQs.",
+      requirements: ["Keep answers consistent with the rendered page."],
+    },
+  ],
+  reviewFlags: [ventures[2].relationship],
 };
 
 export const contactContent: PageContent = {
@@ -793,6 +915,7 @@ export const routeContent: Record<CanonicalRoute, PageContent> = {
   "/speaking/": speakingContent,
   "/about/": aboutContent,
   "/ventures/": venturesContent,
+  "/ventures/summon-worlds/": summonWorldsContent,
   "/contact/": contactContent,
   "/privacy/": privacyContent,
 };
@@ -803,6 +926,7 @@ export const siteContent = {
   speaking: speakingContent,
   about: aboutContent,
   ventures: venturesContent,
+  summonWorlds: summonWorldsContent,
   contact: contactContent,
   privacy: privacyContent,
   routes: routeContent,
