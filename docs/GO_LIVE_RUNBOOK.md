@@ -1,6 +1,7 @@
 # Go-live runbook
 
-Status: application published; DNS cutover pending GoDaddy account access.
+Status: application published; DNS cutover completed on 2026-08-31. The `www`
+hostname is active and the apex certificate is provisioning.
 
 ## Production
 
@@ -13,8 +14,13 @@ Status: application published; DNS cutover pending GoDaddy account access.
 
 ## DNS cutover
 
-The authoritative nameservers are GoDaddy (`ns31.domaincontrol.com` and
-`ns32.domaincontrol.com`). Add the following records in GoDaddy DNS.
+The authoritative nameservers are Cloudflare:
+
+- `gigi.ns.cloudflare.com`
+- `tom.ns.cloudflare.com`
+
+GoDaddy accepted the nameserver change on 2026-08-31. Cloudflare is configured
+with the following DNS-only records:
 
 | Type | Name | Value |
 | --- | --- | --- |
@@ -26,13 +32,14 @@ The authoritative nameservers are GoDaddy (`ns31.domaincontrol.com` and
 | TXT | `_openai-site-verification.www` | `openai-site-verification=gFbIvJTQpYHTj_j1L6bw9vjv1HDc-xaOYB0o0e6_8qA` |
 | TXT | `_cf-custom-hostname.www` | `fe4988f0-e4b8-4656-9df6-95013314f5a7` |
 
-Before adding the two new apex A records, remove the current apex A records.
-Before adding the new `www` CNAME, replace the current `www` CNAME. Preserve
-all unrelated records, especially MX and email-related TXT records.
+The records above and the authoritative nameserver change have been confirmed
+through public DNS. Existing non-web records were preserved during the zone
+migration.
 
 ## Rollback values
 
-If the new host does not validate or serve correctly, restore these records:
+If the new host does not validate or serve correctly, move DNS authority back
+to GoDaddy and restore these records:
 
 | Type | Name | Value |
 | --- | --- | --- |
