@@ -34,7 +34,8 @@ with the following DNS-only records:
 
 The records above and the authoritative nameserver change have been confirmed
 through public DNS. Existing non-web records were preserved during the zone
-migration.
+migration. The obsolete Kinsta `_acme-challenge` CNAME was removed after the
+cutover so it cannot intercept certificate validation for the new host.
 
 ## Rollback values
 
