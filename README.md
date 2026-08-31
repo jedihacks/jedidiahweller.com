@@ -1,55 +1,50 @@
+# JedidiahWeller.com
 
-# Jedidiah Weller (twitter.com/jedihacks)
+The production personal website for Jedidiah “Jedi” Weller, built with Next.js, TypeScript, Tailwind CSS, vinext, and OpenAI Sites.
 
-Portfolio website built using stencil.js and opensourced for the community to use.  This is/was my first stencil.js application so forgive the initial commits, they were a learning process :) 
+## Routes
 
-Details are below - check out our team's work at www.openforge.io
+- `/` — personal-brand overview
+- `/speaking/` — speaking topics, video, and engagement path
+- `/about/` — biography and operating philosophy
+- `/ventures/` — OpenForge and Startup Wars
+- `/contact/` — speaking and collaboration inquiries
+- `/privacy/` — privacy disclosure
 
-## Development
+The application also supplies a sitemap, robots policy, structured metadata, canonical-host redirects, a custom 404, and a reviewed redirect from `/profile/jedi/` to `/about/`.
 
-### File Structure
-**UI** components should reside in the `src/components` folder.
+## Local development
 
-While **Page** components should reside in the `src/pages` folder. A page component is responsible for the grouping and layout of varios different components into a page. Also responsible for any logic around the communication between the different components, the rest of the application (i.e. routing), and with the external world.
-
-### Tools
-
-#### Linting & Code Formatting:
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-This project uses:
-- [prettier](http://prettier.io/) for code formatting.
-- [tslint](https://palantir.github.io/tslint/) for linting with rules from:
-  - [tslint-react](https://github.com/palantir/tslint-react)
-  - [tslint-config-airbnb](https://github.com/progre/tslint-config-airbnb)
-  - [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier)
-
-`package.json` defines an npm script for linting. To lint the project at any time, simply run the script with
-```
-$ npm run lint
+```bash
+npm install
+npm run dev
 ```
 
-#### Versioning & Changelog
-We utilize [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) to generate a changelog from git metadata.
+The development server prints its local URL when it starts.
 
-The following tools are used to achieve this purpose:
-- [commitizen](https://github.com/commitizen/cz-cli)
-- [cz-conventional-changelog](https://www.npmjs.com/package/cz-conventional-changelog)
-- [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli)
+## Validation
 
-With the current configuration, after a developer stages their changes for a commit. They can use the following npm script to walk them through committing their changes.
-
-```
-npm run cz
+```bash
+npm run lint
+npm run typecheck
+npm test
 ```
 
-Read more about the commit guidelines [here](http://conventionalcommits.org/)
+`npm test` creates the production vinext build and validates rendered route, metadata, redirect, 404, and video-loading behavior.
 
-After all changes have been committed, a release and a changelog can be triggered by using the npm [version](https://docs.npmjs.com/cli/version) command. And the current configuration takes care of generating the changelog file based on git metadata.
+## Content and migration documentation
 
-#### Automation & Hooks
-The project uses [husky](https://github.com/typicode/husky) for git hook integations. And uses [lint-staged](https://github.com/okonet/lint-staged) to run automatically run linters on staged files. And [commitlint](https://github.com/marionebl/commitlint) to ensure commits messages follow the conventions.
+- [Migration plan](MIGRATION_README.md)
+- [SEO and content audit](docs/SEO_CONTENT_AUDIT.md)
+- [UI and brand audit](docs/UI_BRAND_AUDIT.md)
+- [Media provenance](public/media/MANIFEST.md)
 
-For every commit, it will ensure files are linted and that the code is formatted to `prettier`'s configuration. It will also confirm that the proposed commit message matches the defined guidelines. If any error occurs in the process, it will **stop and prevent** the commit until the issues are fixed.
+Public copy lives in `lib/site-content.ts`. Keep factual claims evidence-bounded and review any item marked `owner-review` before promoting it as verified proof.
 
-If a developer went through providing all the information during a `npm run cz` only to find that there were issues with their commit. They may fix them and instruct commitizen to try the commit again with `npm run cz -- --retry`
+## Inquiry handling
+
+The former Unbounce form was coupled to the previous domain. The current accessible form transparently prepares an email to the verified OpenForge contact channel. `app/api/inquiry/route.ts` is reserved for a future approved server-side email or CRM transport; it intentionally returns a clear unavailable response until one is configured.
+
+## Deployment
+
+The build is Cloudflare Worker compatible and configured for OpenAI Sites. `.openai/hosting.json` stores only the Sites project identifier after project creation; runtime settings and secrets belong in the hosting environment rather than the repository.

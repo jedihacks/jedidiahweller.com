@@ -1,0 +1,7 @@
+import { Container, InquiryForm } from "@/components/site";
+import { pageMetadata } from "@/lib/seo";
+import { contactContent } from "@/lib/site-content";
+
+export const metadata = pageMetadata(contactContent.seo.title, contactContent.seo.description, contactContent.route);
+
+export default function ContactPage() { return <main id="main-content"><section className="bg-charcoal py-20 text-white sm:py-28"><Container><p className="text-sm font-bold uppercase tracking-[.18em] text-orange">Contact</p><h1 className="mt-4 max-w-3xl text-5xl font-black tracking-[-.06em] sm:text-7xl">Start the conversation.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">For a technology or entrepreneurship speaking engagement, or a collaboration inquiry, share a few details below.</p></Container></section><section className="py-20 sm:py-28"><Container className="grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><aside><h2 className="text-3xl font-black tracking-[-.045em]">A direct path to the right conversation.</h2><p className="mt-5 leading-7 text-ink/75">Complete the form and your email app will open with the details already organized for OpenForge’s public contact channel. You can review everything before sending.</p><p className="mt-5 leading-7 text-ink/75">Prefer to write directly? <a className="font-bold text-teal underline" href="mailto:hello@openforge.io">hello@openforge.io</a></p></aside><InquiryForm /></Container></section></main>; }

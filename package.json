@@ -1,86 +1,19 @@
 {
-  "name": "@stencil/starter",
+  "name": "jedidiah-weller-web",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.2",
-  "description": "Stencil Portfolio Site by @jedihacks (Jedidiah Weller)",
-  "files": [
-    "dist/"
-  ],
+  "type": "module",
+  "engines": { "node": ">=22.13.0" },
   "scripts": {
-    "build": "stencil build --prerender",
-    "cz": "git-cz",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
-    "lint": "tslint -p ./tsconfig.json --exclude '**/*.d.ts'",
-    "serve": "stencil-dev-server",
-    "start": "npm run dev",
-    "test": "jest --no-cache",
-    "test.watch": "jest --watch --no-cache",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
+    "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build --precompress",
+    "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs"
   },
-  "dependencies": {
-    "@stencil/core": "next",
-    "@stencil/router": "latest"
-  },
+  "dependencies": { "react": "^19.2.8", "react-dom": "^19.2.8" },
   "devDependencies": {
-    "@commitlint/cli": "^6.1.3",
-    "@commitlint/config-conventional": "^6.1.3",
-    "@stencil/dev-server": "latest",
-    "@stencil/utils": "latest",
-    "@types/jest": "^21.1.1",
-    "commitizen": "^2.9.6",
-    "conventional-changelog-cli": "^1.3.16",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^0.15.0-rc.12",
-    "jest": "^21.2.1",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.1",
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.8.0",
-    "tslint-config-prettier": "^1.10.0",
-    "tslint-react": "^3.5.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
-  },
-  "author": "Ionic Team",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
-  },
-  "homepage": "https://github.com/ionic-team/stencil",
-  "jest": {
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json",
-      "jsx"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "git add"
-    ],
-    "src/**/*.{js,jsx,ts,tsx,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "@cloudflare/vite-plugin": "^1.54.2", "@cloudflare/workers-types": "^5.20260830.1", "@eslint/js": "9.39.4", "@next/eslint-plugin-next": "16.2.6", "@openai/sites-vite-plugin": "0.1.0", "@tailwindcss/postcss": "4.2.1", "@types/node": "22.19.19", "@types/react": "19.2.14", "@types/react-dom": "19.2.3", "@vinext/cloudflare": "^1.0.0-beta.6", "@vitejs/plugin-react": "6.0.2", "@vitejs/plugin-rsc": "^0.5.34", "eslint": "9.39.4", "eslint-plugin-jsx-a11y": "6.10.2", "eslint-plugin-react": "7.37.5", "eslint-plugin-react-hooks": "7.1.1", "globals": "16.4.0", "react-server-dom-webpack": "^19.2.8", "tailwindcss": "4.2.1", "typescript": "5.9.3", "typescript-eslint": "8.59.3", "vinext": "^1.0.0-beta.8", "vite": "^8.2.2", "wrangler": "^4.127.1"
   }
 }
