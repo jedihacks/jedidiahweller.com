@@ -25,11 +25,12 @@ export default function MeasurementPage() {
               Analytics provides separate visit and engagement reporting.
             </p>
             <p>
-              Measurement is off until you allow it. Your choice is kept in
-              local storage on this browser. First-party count events contain no
-              visitor identifier or cookie. Google Analytics uses analytics
-              cookies and processes technical request information after you opt
-              in. We send page paths and named actions with query strings
+              Measurement runs by default unless you opt out or your browser
+              sends a privacy signal. Your choice is kept in local storage on
+              this browser. First-party count events contain no visitor
+              identifier or cookie. Google Analytics uses analytics cookies and
+              processes technical request information while analytics is
+              enabled. We send page paths and named actions with query strings
               removed and only the referring site’s domain retained. Calculator
               values and inquiry details are excluded. Global Privacy Control
               and Do Not Track disable optional events.

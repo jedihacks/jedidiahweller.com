@@ -27,3 +27,30 @@ test('SendGrid notifications require configuration and recognize only provider a
  assert.equal(sent.reply_to.email,valid.email);assert.equal(sent.tracking_settings.open_tracking.enable,false);
  assert.equal(await notifyInquiry('id',parseInquiry(valid),config,async()=>new Response(null,{status:401})),'failed');
 });
+
+test('analytics defaults on, preserves opt-outs, and stops/resumes collection with browser signals', async () => {
+ const {analyticsAllowed,setAnalyticsPreference,startAnalytics,sendAnalyticsEvent,stopAnalytics}=await import('../lib/google-analytics.ts');
+ const names=['window','navigator','localStorage','location','document'];
+ const original=new Map(names.map(name=>[name,Object.getOwnPropertyDescriptor(globalThis,name)]));
+ let preference=null,unavailable=false;const scripts=[],commands=[],cookies=[];
+ const win={dispatchEvent(){},dataLayer:[],gtag:(...args)=>commands.push(args)};
+ const nav={doNotTrack:'0',globalPrivacyControl:false};
+ const storage={getItem(){if(unavailable)throw Error('blocked');return preference;},setItem(key,value){if(unavailable)throw Error('blocked');preference=value;}};
+ const doc={referrer:'https://example.com/search?private=value',get cookie(){return '_ga=test; _ga_TEST=session; other=value';},set cookie(value){cookies.push(value);},createElement(){return {};},head:{appendChild(s){scripts.push(s);}}};
+ const values={window:win,navigator:nav,localStorage:storage,location:{origin:'https://jedidiahweller.com',pathname:'/speaking/'},document:doc};
+ win.location=values.location;
+ for(const name of names)Object.defineProperty(globalThis,name,{configurable:true,writable:true,value:values[name]});
+ try {
+  assert.equal(analyticsAllowed(),true,'new visitors are measured by default');
+  preference='no';assert.equal(analyticsAllowed(),false,'legacy opt-outs stay off');
+  preference='yes';nav.doNotTrack='1';assert.equal(analyticsAllowed(),false);
+  nav.doNotTrack='0';nav.globalPrivacyControl=true;assert.equal(analyticsAllowed(),false);
+  nav.globalPrivacyControl=false;setAnalyticsPreference('no');
+  startAnalytics('G-TEST');sendAnalyticsEvent('page_view');assert.equal(commands.length,0);
+  win.jediGaId='G-TEST';stopAnalytics();assert.equal(win['ga-disable-G-TEST'],true);
+  assert.equal(commands.at(-1)[2].analytics_storage,'denied');assert.ok(cookies.some(value=>value.startsWith('_ga=;Max-Age=0')));assert.ok(cookies.every(value=>!value.startsWith('other=')));
+  setAnalyticsPreference('yes');startAnalytics('G-TEST');assert.equal(win['ga-disable-G-TEST'],false);assert.equal(commands.at(-1)[2].analytics_storage,'granted');
+  sendAnalyticsEvent('page_view');assert.equal(commands.at(-1)[2].page_referrer,'https://example.com/');assert.equal(commands.at(-1)[2].page_location,'https://jedidiahweller.com/speaking/');
+  unavailable=true;setAnalyticsPreference('no');assert.equal(analyticsAllowed(),false,'opt-out holds even when storage fails');
+ } finally { for(const name of names){const descriptor=original.get(name);if(descriptor)Object.defineProperty(globalThis,name,descriptor);else delete globalThis[name];} }
+});

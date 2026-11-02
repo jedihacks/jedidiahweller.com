@@ -3,13 +3,15 @@ declare global {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     jediGaId?: string;
+    jediAnalyticsChoice?: "yes" | "no" | null;
     [key: `ga-disable-${string}`]: boolean | undefined;
   }
 }
 export function analyticsAllowed() {
   try {
     return (
-      localStorage.getItem("jedi-usage-counts") === "yes" &&
+      (window.jediAnalyticsChoice ??
+        localStorage.getItem("jedi-usage-counts")) !== "no" &&
       navigator.doNotTrack !== "1" &&
       !(navigator as Navigator & { globalPrivacyControl?: boolean })
         .globalPrivacyControl
@@ -17,6 +19,15 @@ export function analyticsAllowed() {
   } catch {
     return false;
   }
+}
+export function setAnalyticsPreference(value: "yes" | "no") {
+  window.jediAnalyticsChoice = value;
+  try {
+    localStorage.setItem("jedi-usage-counts", value);
+  } catch {
+    /* Keep the choice for this page if browser storage is unavailable. */
+  }
+  window.dispatchEvent(new Event("jedi-analytics-preference"));
 }
 function referrerOrigin() {
   try {
@@ -36,7 +47,15 @@ export function startAnalytics(id: string) {
   const w = window;
   w.jediGaId = id;
   w[`ga-disable-${id}`] = false;
-  if (w.gtag) return;
+  if (w.gtag) {
+    w.gtag("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    return;
+  }
   w.dataLayer = w.dataLayer || [];
   w.gtag = function (..._args: unknown[]) {
     w.dataLayer!.push(arguments);
@@ -74,6 +93,12 @@ export function sendAnalyticsEvent(event: string) {
 export function stopAnalytics() {
   const w = window;
   if (w.jediGaId) w[`ga-disable-${w.jediGaId}`] = true;
+  w.gtag?.("consent", "update", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
   for (const cookie of document.cookie.split(";")) {
     const name = cookie.split("=")[0].trim();
     if (!/^_ga(?:_|$)/.test(name)) continue;

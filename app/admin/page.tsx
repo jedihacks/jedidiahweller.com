@@ -69,8 +69,9 @@ export default async function AdminPage() {
           </h1>
           <p className="mt-4 leading-7">
             Latest 100 inquiries. Reply from your email application. Aggregate
-            usage covers the last 28 days and includes only visitors who opted
-            in; counters may include repeated or automated interactions.
+            usage covers the last 28 days and excludes visitors who opt out or
+            send browser privacy signals; counters may include repeated or
+            automated interactions.
           </p>
           <h2 className="mt-12 text-2xl font-bold">Inquiry inbox</h2>
           {inquiries.results.length === 0 && (
