@@ -46,7 +46,7 @@ Public copy lives in `lib/site-content.ts`. Keep factual claims evidence-bounded
 
 ## Inquiry handling
 
-The former Unbounce form was coupled to the previous domain. The current accessible form transparently prepares an email to the verified OpenForge contact channel. `app/api/inquiry/route.ts` is reserved for a future approved server-side email or CRM transport; it intentionally returns a clear unavailable response until one is configured.
+The form submits directly to a protected D1 inbox and displays a receipt after acceptance. Optional notifications use OpenForge’s SendGrid service. See the owner-inbox and runtime configuration details below.
 
 ## Deployment
 

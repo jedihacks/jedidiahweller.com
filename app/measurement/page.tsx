@@ -3,7 +3,7 @@ import { Measurement } from "@/components/site/measurement";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Measurement & Privacy Preferences | Jedidiah Weller",
-  "Choose whether to allow anonymous usage counts and learn what this site measures.",
+  "Choose whether to allow Google Analytics and aggregate usage counts, and learn what the site measures.",
   "/measurement/",
 );
 export default function MeasurementPage() {
@@ -20,8 +20,9 @@ export default function MeasurementPage() {
               Optional Google Analytics and first-party measurement count page
               views, calculator edits, exports and shares, contact clicks,
               speaker-kit download clicks, and successful inquiry submissions.
-              Counts are grouped by UTC day, page, and action. They are
-              interactions, not unique visitors or verified leads.
+              First-party counts are grouped by UTC day, page, and action. They
+              are interactions, not unique visitors or verified leads. Google
+              Analytics provides separate visit and engagement reporting.
             </p>
             <p>
               Measurement is off until you allow it. Your choice is kept in

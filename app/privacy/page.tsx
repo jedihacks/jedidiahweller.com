@@ -3,7 +3,7 @@ import { Container } from "@/components/site";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Privacy — Jedidiah Weller",
-  "How this site handles inquiry submissions, anonymous optional measurement, calculator scenarios, and embedded video.",
+  "How this site handles inquiry submissions, optional Google Analytics and aggregate measurement, calculator scenarios, and embedded video.",
   "/privacy/",
 );
 export default function PrivacyPage() {
@@ -60,9 +60,9 @@ export default function PrivacyPage() {
               strings, or referrers. These counts do not identify unique people.
               Google Analytics uses analytics cookies to measure visits and
               engagement, and Google receives technical request information. The
-              site sends page locations with query strings removed, omits
-              referrers, disables advertising personalization, and excludes
-              calculator values and inquiry fields.
+              site sends page locations with query strings removed, retains only
+              the referring site’s domain, disables advertising personalization,
+              and excludes calculator values and inquiry fields.
             </p>
             <p className="mt-3">
               Your preference is stored in this browser’s local storage. Do Not
