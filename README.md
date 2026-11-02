@@ -10,6 +10,8 @@ The production personal website for Jedidiah “Jedi” Weller, built with Next.
 - `/ventures/` — OpenForge, Startup Wars, and Summon Worlds
 - `/ventures/summon-worlds/` — Summon Worlds venture profile
 - `/contact/` — speaking and collaboration inquiries
+- `/blog/` — essays and interactive tools
+- `/blog/ai-llm-cost-comparison/` — AI economics essay and cost/ROI calculator
 - `/privacy/` — privacy disclosure
 
 The application also supplies a sitemap, robots policy, structured metadata, canonical-host redirects, a custom 404, and a reviewed redirect from `/profile/jedi/` to `/about/`.
@@ -49,3 +51,7 @@ The former Unbounce form was coupled to the previous domain. The current accessi
 ## Deployment
 
 The build is Cloudflare Worker compatible and configured for OpenAI Sites. `.openai/hosting.json` stores only the Sites project identifier after project creation; runtime settings and secrets belong in the hosting environment rather than the repository.
+
+## AI economics article
+
+Article metadata lives in `lib/blog.ts`; calculator formulas and illustrative scenarios live in `lib/ai-cost.ts`. The calculator supports invoice/token baselines, cached input, partial API displacement, power and labor, rented GPUs, shareable scenarios, and CSV export. Prices are not fetched live. See `docs/AI_COST_SEO_STRATEGY.md` for measured search demand and editorial priorities.
