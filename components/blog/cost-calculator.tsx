@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { trackEvent } from "@/components/site/measurement";
+import { useEffect, useRef, useState } from "react";
 import { calculateCosts, defaultInputs, inputLimits, normalizeInputs, scenarios, type CostInputs } from "@/lib/ai-cost";
 
 const money = (n: number, digits = 0) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: digits }).format(n);
@@ -12,6 +13,7 @@ function NumberField({ name, label, inputs, onChange, hint, step = "any" }: { na
 }
 
 export function CostCalculator() {
+  const edited = useRef(false);
   const [inputs, setInputs] = useState<CostInputs>(defaultInputs);
   const [scenario, setScenario] = useState("team");
   const [status, setStatus] = useState("");
@@ -30,6 +32,7 @@ export function CostCalculator() {
   }, []);
   const c = calculateCosts(inputs);
   function update(key: NumericKey, value: number) {
+    if (!edited.current) { edited.current = true; trackEvent("calculator_edit"); }
     setInputs(previous => normalizeInputs({ ...previous, [key]: value }));
     setScenario("custom"); setStatus("");
     if (key === "months") setSelectedMonth(Math.round(Math.min(120, Math.max(1, value))));
@@ -48,6 +51,7 @@ export function CostCalculator() {
     { label: "Rented + fallback", segments: [{ value: c.rentalCompute + inputs.rentalOps, label: "Rental + operations", color: "#77649e" }, { value: c.residual, label: "API fallback", color: "#386f70" }], total: c.rentedMonthly },
   ];
   async function share() {
+    trackEvent("scenario_share");
     const url = new URL(window.location.href);
     url.search = ""; url.searchParams.set("costs", JSON.stringify(inputs)); url.hash = "calculator";
     window.history.replaceState(null, "", url);
@@ -55,6 +59,7 @@ export function CostCalculator() {
     catch { setStatus("Scenario saved in the address bar. Copy this page’s URL to share it."); }
   }
   function download() {
+    trackEvent("calculator_export");
     const lines = ["AI / LLM cost comparison — USD", "Model,Constant demand and prices; undiscounted cash flow; no tax or resale", "Assumption,Value", ...Object.entries(inputs).map(([key, value]) => `${key},${value}`), "", "Month,Managed API,Owned plus fallback,Rented plus fallback", ...c.series.map(p => `${p.month},${p.api.toFixed(2)},${p.owned.toFixed(2)},${p.rented.toFixed(2)}`)];
     const url = URL.createObjectURL(new Blob([lines.join("\r\n")], { type: "text/csv;charset=utf-8" }));
     const link = document.createElement("a"); link.href = url; link.download = "llm-cost-comparison.csv"; link.click(); URL.revokeObjectURL(url);
