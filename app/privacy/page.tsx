@@ -51,18 +51,20 @@ export default function PrivacyPage() {
               Optional analytics & aggregate usage counts
             </h2>
             <p className="mt-3">
-              Google Analytics and first-party usage measurement are off until
-              you allow them. The site stores aggregate counts by UTC day, page,
-              and action. Events include page views, calculator edits, exports
-              and shares, contact clicks, speaker-kit download clicks, and
-              successful inquiry submissions. First-party count events contain
-              no visitor IDs, cookies, form details, financial inputs, URL query
-              strings, or referrers. These counts do not identify unique people.
-              Google Analytics uses analytics cookies to measure visits and
-              engagement, and Google receives technical request information. The
-              site sends page locations with query strings removed, retains only
-              the referring site’s domain, disables advertising personalization,
-              and excludes calculator values and inquiry fields.
+              Google Analytics and first-party usage measurement run by default.
+              You can opt out at any time using Privacy preferences in the
+              footer. Previously saved opt-outs are preserved. The site stores
+              aggregate counts by UTC day, page, and action. Events include page
+              views, calculator edits, exports and shares, contact clicks,
+              speaker-kit download clicks, and successful inquiry submissions.
+              First-party count events contain no visitor IDs, cookies, form
+              details, financial inputs, URL query strings, or referrers. These
+              counts do not identify unique people. Google Analytics uses
+              analytics cookies to measure visits and engagement, and Google
+              receives technical request information. The site sends page
+              locations with query strings removed, retains only the referring
+              site’s domain, disables advertising personalization, and excludes
+              calculator values and inquiry fields.
             </p>
             <p className="mt-3">
               Your preference is stored in this browser’s local storage. Do Not

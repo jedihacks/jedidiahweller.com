@@ -6,6 +6,7 @@ import {
   startAnalytics,
   sendAnalyticsEvent,
   stopAnalytics,
+  setAnalyticsPreference,
 } from "@/lib/google-analytics";
 import { metricEvents } from "@/lib/measurement";
 const key = "jedi-usage-counts";
@@ -30,13 +31,35 @@ export function Measurement({
 }) {
   const [choice, setChoice] = useState<string | null>("loading");
   const path = usePathname();
+  const [enabled, setEnabled] = useState<boolean | null>(null);
   useEffect(() => {
-    try {
-      setChoice(localStorage.getItem(key));
-    } catch {
-      setChoice("no");
-    }
-  }, []);
+    const sync = () => {
+      try {
+        setChoice(window.jediAnalyticsChoice ?? localStorage.getItem(key));
+      } catch {
+        setChoice("no");
+      }
+      const allowed = analyticsAllowed();
+      setEnabled(allowed);
+      if (!allowed) stopAnalytics();
+    };
+    const storage = (event: StorageEvent) => {
+      if (event.key !== key && event.key !== null) return;
+      window.jediAnalyticsChoice = null;
+      sync();
+      if (!settings && analyticsAllowed()) {
+        startAnalytics(googleId);
+        trackEvent("page_view");
+      }
+    };
+    sync();
+    window.addEventListener("storage", storage);
+    window.addEventListener("jedi-analytics-preference", sync);
+    return () => {
+      window.removeEventListener("storage", storage);
+      window.removeEventListener("jedi-analytics-preference", sync);
+    };
+  }, [settings, googleId]);
   useEffect(() => {
     if (settings) return;
     if (path.startsWith("/admin")) {
@@ -58,13 +81,10 @@ export function Measurement({
     document.addEventListener("click", click);
     return () => document.removeEventListener("click", click);
   }, [settings]);
-  function choose(value: string) {
-    try {
-      localStorage.setItem(key, value);
-    } catch {
-      /* Counts stay off if storage is unavailable. */
-    }
+  function choose(value: "yes" | "no") {
+    setAnalyticsPreference(value);
     setChoice(value);
+    setEnabled(analyticsAllowed());
     if (value === "yes") {
       startAnalytics(
         googleId ||
@@ -78,7 +98,7 @@ export function Measurement({
       stopAnalytics();
     }
   }
-  if (!settings && choice !== null) return null;
+  if (!settings && (choice !== null || enabled !== true)) return null;
   return (
     <aside
       data-google-analytics={googleId || undefined}
@@ -86,25 +106,27 @@ export function Measurement({
       aria-label="Analytics preferences"
     >
       <p>
-        <strong>Help improve this site?</strong> Allow Google Analytics and
-        aggregate site counts to help improve the content and tools. Google
-        Analytics uses cookies. Calculator values, inquiry fields, and query
-        strings are excluded.
+        <strong>Analytics preferences</strong> Google Analytics and aggregate
+        site counts run by default to help improve the content and tools. You
+        can opt out at any time. Google Analytics uses cookies; calculator
+        values, inquiry fields, and query strings are excluded.
       </p>
       <div>
         <button type="button" onClick={() => choose("no")}>
-          Decline{settings && choice === "no" ? " · selected" : ""}
+          Opt out{settings && enabled === false ? " · selected" : ""}
         </button>
         <button type="button" onClick={() => choose("yes")}>
-          Allow analytics{settings && choice === "yes" ? " · selected" : ""}
+          Keep analytics on{settings && enabled === true ? " · selected" : ""}
         </button>
         <a href="/measurement/">Details & preferences</a>
       </div>
       {settings && (
         <p role="status">
-          {choice === "yes"
-            ? "Analytics allowed on this browser. Global Privacy Control and Do Not Track override this preference."
-            : "Optional analytics is off."}
+          {enabled === null
+            ? "Loading your preference…"
+            : enabled
+              ? "Analytics is on. You can opt out at any time. Do Not Track and Global Privacy Control override this preference."
+              : "Analytics is off on this browser. Saved opt-outs and browser privacy signals are respected."}
         </p>
       )}
     </aside>
