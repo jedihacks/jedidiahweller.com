@@ -1,0 +1,1 @@
+ALTER TABLE `inquiries` ADD `notification_status` text DEFAULT 'pending' NOT NULL;

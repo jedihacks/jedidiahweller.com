@@ -28,7 +28,7 @@ export default function HomePage() {
         <Container className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[.2em] text-orange">
-              Jedidiah Weller · Jedi
+              Jedidiah Weller · Founder & Software Guru
             </p>
             <h1 className="mt-4 max-w-3xl text-5xl font-black leading-[.94] tracking-[-.065em] sm:text-7xl">
               <span className="sr-only">Jedidiah Weller: </span>

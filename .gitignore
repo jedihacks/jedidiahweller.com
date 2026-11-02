@@ -27,3 +27,7 @@ UserInterfaceState.xcuserstate
 .vinext/
 .wrangler/
 *.tsbuildinfo
+
+.dev.vars*
+.env.*
+!.env.example

@@ -15,13 +15,14 @@ async function render(path) {
 
 const pages = [
   ["/", "Jedidiah Weller — Founder, Speaker, Maker"],
-  ["/speaking/", "Speaking — Jedidiah Weller"],
+  ["/speaking/", "AI, Product &amp; Entrepreneurship Speaker | Jedidiah Weller"],
   ["/about/", "About Jedidiah Weller"],
   ["/ventures/", "Ventures — OpenForge, Startup Wars, and Summon Worlds"],
   ["/ventures/summon-worlds/", "Summon Worlds — A Jedidiah Weller Venture"],
   ["/contact/", "Contact Jedidiah Weller — Book an Engagement"],
   ["/blog/", "Blog — AI, Product &amp; Building | Jedidiah Weller"],
   ["/blog/ai-llm-cost-comparison/", "LLM Cost Calculator: API vs Local AI &amp; GPU Hosting | Jedi Weller"],
+  ["/measurement/", "Measurement &amp; Privacy Preferences | Jedidiah Weller"],
   ["/privacy/", "Privacy — Jedidiah Weller"],
 ];
 
@@ -84,4 +85,19 @@ test("AI essay renders indexable content, formulas, canonical sharing, and autho
   assert.match(html, /rel="canonical" href="https:\/\/jedidiahweller\.com\/blog\/ai-llm-cost-comparison\/"/);
   assert.match(html, /lambda.ai\/pricing/);
   assert.match(html, /Copy scenario link/);
+});
+
+
+test("inquiry and owner inbox expose honest receipt and protected access", async () => {
+ const contact = await (await render("/contact/")).text();
+ assert.match(contact,/Send inquiry/); assert.doesNotMatch(contact,/Prepare inquiry email/);
+ const admin = await (await render("/admin/")).text();
+ assert.match(admin,/Sign in with ChatGPT/);assert.match(admin,/noindex/);assert.doesNotMatch(admin,/Latest 100 inquiries/);
+});
+test("follow-up field notes render unique canonical pages and honest methodology", async()=>{
+ for(const slug of ["reduce-llm-inference-costs","cost-per-successful-ai-task","local-llm-benchmark-method"]){
+  const path=`/blog/${slug}/`;const response=await render(path);assert.equal(response.status,200);
+  const html=await response.text();assert.match(html,new RegExp(`href="https://jedidiahweller\\.com${path}"`));assert.match(html,/BlogPosting/);assert.equal([...html.matchAll(/<h1\b/gi)].length,1);
+ }
+ const benchmark=await (await render("/blog/local-llm-benchmark-method/")).text();assert.match(benchmark,/not a report of measured hardware results/);
 });

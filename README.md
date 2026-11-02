@@ -55,3 +55,29 @@ The build is Cloudflare Worker compatible and configured for OpenAI Sites. `.ope
 ## AI economics article
 
 Article metadata lives in `lib/blog.ts`; calculator formulas and illustrative scenarios live in `lib/ai-cost.ts`. The calculator supports invoice/token baselines, cached input, partial API displacement, power and labor, rented GPUs, shareable scenarios, and CSV export. Prices are not fetched live. See `docs/AI_COST_SEO_STRATEGY.md` for measured search demand and editorial priorities.
+
+## Inquiries, measurement, and owner inbox
+
+The contact form POSTs to `/api/inquiry/`. Valid submissions are stored in D1 before a receipt is returned; a honeypot, bounded payload, same-origin guard, and persistent five-per-hour IP-hash limit protect the public endpoint. `/admin/` requires dispatch-owned ChatGPT identity plus the exact `SITE_OWNER_EMAIL` runtime allowlist. It displays the latest 100 inquiries and 28 days of opt-in first-party event counts. Keep this route private and out of the sitemap.
+
+Sites provisions the `DB` binding declared in `.openai/hosting.json` and applies the schema-only migrations in `drizzle/`. Generate changes with `npm run db:generate`; do not edit deployed migrations. For local preview, build and apply each new migration with `npx wrangler d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/<migration>.sql`.
+
+Runtime values belong in Sites environment settings:
+
+- `SITE_OWNER_EMAIL`: owner’s verified ChatGPT email (secret).
+- `GOOGLE_ANALYTICS_ID`: verified GA4 measurement ID; production property is `561922842` in OpenForge account `118169306`, stream `16256969848` (`G-8NHBEYMZ7B`).
+- `SENDGRID_API_KEY`: OpenForge SendGrid mail-send credential (secret).
+- `INQUIRY_FROM_EMAIL`: verified SendGrid sender address.
+- `INQUIRY_TO_EMAIL`: owner’s inquiry notification recipient.
+
+SendGrid notifications run only when all three mail values are configured. The database is the durable inbox; notification state is recorded as `not_configured`, `accepted` (SendGrid HTTP 202, not a delivery guarantee), or `failed`. A failed notification does not discard a saved inquiry. Review `/admin/` while notification configuration is pending. No visitor auto-reply is sent.
+
+Google Analytics and local aggregate event counting are opt-in. GA enhanced measurement is off; the app sends explicit sanitized page events (referrer domain only) and maps accepted inquiry submissions to `generate_lead`. Never transmit form values, calculator inputs, URL queries, or full referrer URLs. `/measurement/` changes consent. Review the actual privacy disclosure when providers or collection change.
+
+CI runs on PRs and pushes to `master`: type checking, financial and service tests, the production build, and rendered-route checks. It deliberately contains no hosting or email credentials.
+
+## Editorial evidence and speaker kit
+
+The public title “Founder & Software Guru” was selected by the owner. OpenForge’s founder/CEO listing is sourced to its public team page. Other venture descriptions are product context rather than claims of personal financial outcomes. The two-page speaker kit is generated with `scripts/create-speaker-kit.py` (ReportLab), rendered and visually checked before release.
+
+The follow-up field notes distinguish hypothetical worked calculations from hardware measurements. `public/downloads/record-local-benchmark.mjs` is a local sequential recorder; it has no measured results bundled, no concurrency or first-token benchmark, and requires manual acceptance review. A measured workstation case study still needs hardware, workload, power, latency, acceptance, and repair-time evidence.
