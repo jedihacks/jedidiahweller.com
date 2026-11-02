@@ -20,6 +20,8 @@ const pages = [
   ["/ventures/", "Ventures — OpenForge, Startup Wars, and Summon Worlds"],
   ["/ventures/summon-worlds/", "Summon Worlds — A Jedidiah Weller Venture"],
   ["/contact/", "Contact Jedidiah Weller — Book an Engagement"],
+  ["/blog/", "Blog — AI, Product &amp; Building | Jedidiah Weller"],
+  ["/blog/ai-llm-cost-comparison/", "LLM Cost Calculator: API vs Local AI &amp; GPU Hosting | Jedi Weller"],
   ["/privacy/", "Privacy — Jedidiah Weller"],
 ];
 
@@ -68,4 +70,18 @@ test("robots, sitemap, and optimized local media are production ready", async ()
   const rasterMedia = media.filter((file) => /\.(?:avif|gif|jpe?g|png|webp)$/i.test(file));
   assert.ok(rasterMedia.length > 0);
   assert.deepEqual(rasterMedia.filter((file) => !file.endsWith(".webp")), []);
+});
+
+
+test("AI essay renders indexable content, formulas, canonical sharing, and author schema", async () => {
+  const html = await (await render("/blog/ai-llm-cost-comparison/?costs=invalid")).text();
+  assert.match(html, /id="calculator"/);
+  assert.match(html, /id="methodology"/);
+  assert.match(html, /BlogPosting/);
+  assert.match(html, /BreadcrumbList/);
+  assert.match(html, /204,000/);
+  assert.match(html, /360,000/);
+  assert.match(html, /rel="canonical" href="https:\/\/jedidiahweller\.com\/blog\/ai-llm-cost-comparison\/"/);
+  assert.match(html, /lambda.ai\/pricing/);
+  assert.match(html, /Copy scenario link/);
 });

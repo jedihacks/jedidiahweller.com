@@ -194,6 +194,13 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <section className="border-t border-ink/10 bg-cream py-16">
+        <Container className="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+          <div><p className="blog-kicker">LATEST FIELD NOTE · AI ECONOMICS</p><h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">What does a useful AI result actually cost?</h2><p className="mt-4 max-w-2xl leading-7 text-ink/75">Compare APIs, rented GPUs, and local hardware. Read the essay, change the assumptions, and calculate the break-even point for your own setup.</p></div>
+          <ButtonLink href="/blog/ai-llm-cost-comparison/">Read & run the numbers</ButtonLink>
+        </Container>
+      </section>
+
       <section className="bg-charcoal py-20 text-white">
         <Container>
           <p className="text-sm font-bold uppercase tracking-[.16em] text-orange">
